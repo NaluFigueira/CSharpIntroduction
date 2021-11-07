@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5-CaracteresETextos", "5-Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6-Condicional", "6-Condicional\6-Condicional.csproj", "{1EF304F5-D870-47B6-96D4-78B0C4D48109}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multiplos3", "Multiplos3\Multiplos3.csproj", "{27A42DA3-0A16-479D-B238-9ED140DFAA30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fatorial", "Fatorial\Fatorial.csproj", "{1CFA5C61-AD79-43B9-9FFA-3A2DE37FB727}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -45,6 +49,14 @@ Global
 		{1EF304F5-D870-47B6-96D4-78B0C4D48109}.Debug|anycpu.Build.0 = Debug|anycpu
 		{1EF304F5-D870-47B6-96D4-78B0C4D48109}.Release|anycpu.ActiveCfg = Release|anycpu
 		{1EF304F5-D870-47B6-96D4-78B0C4D48109}.Release|anycpu.Build.0 = Release|anycpu
+		{27A42DA3-0A16-479D-B238-9ED140DFAA30}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{27A42DA3-0A16-479D-B238-9ED140DFAA30}.Debug|anycpu.Build.0 = Debug|anycpu
+		{27A42DA3-0A16-479D-B238-9ED140DFAA30}.Release|anycpu.ActiveCfg = Release|anycpu
+		{27A42DA3-0A16-479D-B238-9ED140DFAA30}.Release|anycpu.Build.0 = Release|anycpu
+		{1CFA5C61-AD79-43B9-9FFA-3A2DE37FB727}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{1CFA5C61-AD79-43B9-9FFA-3A2DE37FB727}.Debug|anycpu.Build.0 = Debug|anycpu
+		{1CFA5C61-AD79-43B9-9FFA-3A2DE37FB727}.Release|anycpu.ActiveCfg = Release|anycpu
+		{1CFA5C61-AD79-43B9-9FFA-3A2DE37FB727}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
