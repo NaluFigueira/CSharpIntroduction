@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3-PontoFlutuante", "3-Ponto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4-ConversoesEOutrosTiposNumericos", "4-ConversoesEOutrosTiposNumericos\4-ConversoesEOutrosTiposNumericos.csproj", "{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5-CaracteresETextos", "5-CaracteresETextos\5-CaracteresETextos.csproj", "{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -33,6 +35,10 @@ Global
 		{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}.Debug|anycpu.Build.0 = Debug|anycpu
 		{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}.Release|anycpu.ActiveCfg = Release|anycpu
 		{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}.Release|anycpu.Build.0 = Release|anycpu
+		{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}.Debug|anycpu.Build.0 = Debug|anycpu
+		{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}.Release|anycpu.ActiveCfg = Release|anycpu
+		{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
