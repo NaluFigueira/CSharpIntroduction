@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4-ConversoesEOutrosTiposNum
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5-CaracteresETextos", "5-CaracteresETextos\5-CaracteresETextos.csproj", "{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6-Condicional", "6-Condicional\6-Condicional.csproj", "{1EF304F5-D870-47B6-96D4-78B0C4D48109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -39,6 +41,10 @@ Global
 		{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}.Debug|anycpu.Build.0 = Debug|anycpu
 		{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}.Release|anycpu.ActiveCfg = Release|anycpu
 		{21431261-F6F0-4CEC-9C4A-72BA6BB1A363}.Release|anycpu.Build.0 = Release|anycpu
+		{1EF304F5-D870-47B6-96D4-78B0C4D48109}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{1EF304F5-D870-47B6-96D4-78B0C4D48109}.Debug|anycpu.Build.0 = Debug|anycpu
+		{1EF304F5-D870-47B6-96D4-78B0C4D48109}.Release|anycpu.ActiveCfg = Release|anycpu
+		{1EF304F5-D870-47B6-96D4-78B0C4D48109}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
