@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.810.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1-PrimeiroProjeto", "1-PrimeiroProjeto\1-PrimeiroProjeto.csproj", "{064792BC-1876-47C3-BC3F-10D2C8C8B2D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2-CriandoVariaveis", "2-CriandoVariaveis\2-CriandoVariaveis.csproj", "{C5413C1E-2002-403D-948F-3F5F9038F0FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3-PontoFlutuante", "3-PontoFlutuante\3-PontoFlutuante.csproj", "{F6E17AF5-5E1D-4AD2-8C33-064963A48715}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4-ConversoesEOutrosTiposNumericos", "4-ConversoesEOutrosTiposNumericos\4-ConversoesEOutrosTiposNumericos.csproj", "{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -15,6 +21,18 @@ Global
 		{064792BC-1876-47C3-BC3F-10D2C8C8B2D4}.Debug|anycpu.Build.0 = Debug|anycpu
 		{064792BC-1876-47C3-BC3F-10D2C8C8B2D4}.Release|anycpu.ActiveCfg = Release|anycpu
 		{064792BC-1876-47C3-BC3F-10D2C8C8B2D4}.Release|anycpu.Build.0 = Release|anycpu
+		{C5413C1E-2002-403D-948F-3F5F9038F0FD}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{C5413C1E-2002-403D-948F-3F5F9038F0FD}.Debug|anycpu.Build.0 = Debug|anycpu
+		{C5413C1E-2002-403D-948F-3F5F9038F0FD}.Release|anycpu.ActiveCfg = Release|anycpu
+		{C5413C1E-2002-403D-948F-3F5F9038F0FD}.Release|anycpu.Build.0 = Release|anycpu
+		{F6E17AF5-5E1D-4AD2-8C33-064963A48715}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{F6E17AF5-5E1D-4AD2-8C33-064963A48715}.Debug|anycpu.Build.0 = Debug|anycpu
+		{F6E17AF5-5E1D-4AD2-8C33-064963A48715}.Release|anycpu.ActiveCfg = Release|anycpu
+		{F6E17AF5-5E1D-4AD2-8C33-064963A48715}.Release|anycpu.Build.0 = Release|anycpu
+		{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}.Debug|anycpu.Build.0 = Debug|anycpu
+		{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}.Release|anycpu.ActiveCfg = Release|anycpu
+		{7CD6AAFE-5CEA-44F1-BD34-BCBDE1D53399}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
