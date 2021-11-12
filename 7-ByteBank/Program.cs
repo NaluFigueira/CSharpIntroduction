@@ -26,6 +26,12 @@ namespace ByteBank
             Console.WriteLine("O saldo da primeira conta é R$ " + primeiraContaCorrente.saldo + ",00.");
             Console.WriteLine("O saldo da segunda conta é R$ " + segundaContaCorrente.saldo + ",00.");
 
+            Console.WriteLine("Adicionando titular a primeira conta.");
+
+            primeiraContaCorrente.titular = new Cliente();
+            primeiraContaCorrente.titular.nome = "Camila";
+
+            Console.WriteLine("A titular da primeira conta é a " + primeiraContaCorrente.titular.nome);
         }
     }
 }
