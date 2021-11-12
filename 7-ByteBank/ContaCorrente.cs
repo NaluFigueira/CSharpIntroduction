@@ -2,13 +2,15 @@
 {
     public class ContaCorrente
     {
+        public static int TotalDeContasCriadas { get; private set; }
+
         public Cliente Titular { get; set; }
 
         public int Agencia { get; set; }
 
         public int Numero { get; set; }
 
-        private double _saldo = 100;
+        private double _saldo;
 
         public double Saldo
         {
@@ -22,6 +24,15 @@
                     _saldo = value;
                 return;
             }
+        }
+
+        public ContaCorrente(int agencia, int numero)
+        {
+            Agencia = agencia;
+            Numero = numero;
+            Saldo = 100;
+
+            ContaCorrente.TotalDeContasCriadas++;
         }
 
         public bool Sacar(double valor)

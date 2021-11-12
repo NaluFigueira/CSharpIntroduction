@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fatorial", "Fatorial\Fatori
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7-ByteBank", "7-ByteBank\7-ByteBank.csproj", "{19F86B43-A234-45A1-A68A-F4374DE32182}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBankRh", "ByteBankRh\ByteBankRh.csproj", "{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -63,6 +65,10 @@ Global
 		{19F86B43-A234-45A1-A68A-F4374DE32182}.Debug|anycpu.Build.0 = Debug|anycpu
 		{19F86B43-A234-45A1-A68A-F4374DE32182}.Release|anycpu.ActiveCfg = Release|anycpu
 		{19F86B43-A234-45A1-A68A-F4374DE32182}.Release|anycpu.Build.0 = Release|anycpu
+		{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}.Debug|anycpu.Build.0 = Debug|anycpu
+		{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}.Release|anycpu.ActiveCfg = Release|anycpu
+		{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

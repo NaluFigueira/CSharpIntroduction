@@ -7,7 +7,7 @@ namespace ByteBank
         public static void Main(string[] args)
         {
             Console.WriteLine("Criando conta corrente...");
-            ContaCorrente primeiraContaCorrente = new ContaCorrente();
+            ContaCorrente primeiraContaCorrente = new ContaCorrente(867, 82507);
             primeiraContaCorrente.Saldo = 200;
             Console.WriteLine("O saldo atual é R$ " + primeiraContaCorrente.Saldo + ",00.");
 
@@ -16,7 +16,7 @@ namespace ByteBank
             Console.WriteLine("O saldo atual é R$ " + primeiraContaCorrente.Saldo + ",00.");
 
             Console.WriteLine("Criando outra conta corrente...");
-            ContaCorrente segundaContaCorrente = new ContaCorrente();
+            ContaCorrente segundaContaCorrente = new ContaCorrente(868, 83001);
             segundaContaCorrente.Saldo = 50;
             Console.WriteLine("O saldo atual da primeira conta é R$ " + primeiraContaCorrente.Saldo + ",00.");
             Console.WriteLine("O saldo atual da segunda conta é R$ " + segundaContaCorrente.Saldo + ",00.");
@@ -25,6 +25,8 @@ namespace ByteBank
             primeiraContaCorrente.Titular = new Cliente();
             primeiraContaCorrente.Titular.Nome = "Camila";
             Console.WriteLine("A titular da primeira conta é a " + primeiraContaCorrente.Titular.Nome + ".");
+
+            Console.WriteLine("O total de classes criadas é " + ContaCorrente.TotalDeContasCriadas + ".");
         }
     }
 }
