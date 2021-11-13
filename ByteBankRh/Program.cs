@@ -5,27 +5,38 @@ namespace ByteBankRh
 {
     class MainClass
     {
-        public static void Main(string[] args)
+        public static void CalcularBonificacao()
         {
             GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
 
-            Funcionario carlos = new Funcionario();
-            carlos.Nome = "Carlos";
-            carlos.CPF = "546.879.157-20";
-            carlos.Salario = 2000;
+            Designer pedro = new Designer("833.222.048-39");
+            pedro.Nome = "Pedro";
 
-            gerenciadorBonificacao.Registrar(carlos);
-
-
-            Diretor roberta = new Diretor();
+            Diretor roberta = new Diretor("159.753.398-04");
             roberta.Nome = "Roberta";
-            roberta.CPF = "454.658.148-3";
-            roberta.Salario = 5000;
 
+            Auxiliar igor = new Auxiliar("981.198.778-53");
+            igor.Nome = "Igor";
+
+            GerenteDeConta camila = new GerenteDeConta("326.985.628-89");
+            camila.Nome = "Camila";
+
+            Desenvolvedor breno = new Desenvolvedor("538.468.020-26");
+            breno.Nome = "Breno";
+
+            gerenciadorBonificacao.Registrar(pedro);
             gerenciadorBonificacao.Registrar(roberta);
+            gerenciadorBonificacao.Registrar(igor);
+            gerenciadorBonificacao.Registrar(camila);
+            gerenciadorBonificacao.Registrar(breno);
 
             Console.WriteLine("Total bonificações: " + gerenciadorBonificacao.GetTotalBonificacao());
+        }
 
+        public static void Main(string[] args)
+        {
+
+            CalcularBonificacao();
         }
     }
 }

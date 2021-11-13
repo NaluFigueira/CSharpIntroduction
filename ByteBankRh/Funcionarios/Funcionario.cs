@@ -1,15 +1,22 @@
 ﻿using System;
 namespace ByteBankRh.Funcionarios
 {
-    public class Funcionario
+    public abstract class Funcionario
     {
+        public static int TotalDeFuncionarios { get; private set; }
         public string Nome { get; set; }
-        public string CPF { get; set; }
-        public double Salario { get; set; }
+        public string CPF { get; private set; }
+        public double Salario { get; protected set; }
 
-        public virtual double GetBonificacao()
+        public Funcionario(double Salario, string CPF)
         {
-            return Salario * .1;
+            this.Salario = Salario;
+            this.CPF = CPF;
+            TotalDeFuncionarios++;
         }
+
+        public abstract void AumentarSalario();
+
+        public abstract double GetBonificacao();
     }
 }
