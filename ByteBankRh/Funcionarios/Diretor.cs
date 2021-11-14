@@ -1,7 +1,9 @@
 ﻿using System;
+using ByteBankRh.Sistemas;
+
 namespace ByteBankRh.Funcionarios
 {
-    public class Diretor : Funcionario
+    public class Diretor : Autenticavel
     {
         public Diretor(string CPF) : base(5000, CPF)
         {

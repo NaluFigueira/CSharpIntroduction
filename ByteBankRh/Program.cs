@@ -1,10 +1,27 @@
 ﻿using System;
 using ByteBankRh.Funcionarios;
+using ByteBankRh.Sistemas;
 
 namespace ByteBankRh
 {
     class MainClass
     {
+        public static void UsarSistema()
+        {
+            Diretor roberta = new Diretor("159.753.398-04");
+            roberta.Nome = "Roberta";
+            roberta.Senha = "123";
+
+            GerenteDeConta camila = new GerenteDeConta("326.985.628-89");
+            camila.Nome = "Camila";
+            camila.Senha = "abc";
+
+            SistemaInterno sistemaInterno = new SistemaInterno();
+
+            sistemaInterno.Logar(roberta, "123");
+            sistemaInterno.Logar(camila, "123");
+        }
+
         public static void CalcularBonificacao()
         {
             GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
@@ -35,7 +52,7 @@ namespace ByteBankRh
 
         public static void Main(string[] args)
         {
-
+            UsarSistema();
             CalcularBonificacao();
         }
     }
