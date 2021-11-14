@@ -43,6 +43,8 @@
     <Compile Include="Funcionarios\Desenvolvedor.cs" />
     <Compile Include="Sistemas\SistemaInterno.cs" />
     <Compile Include="Sistemas\Autenticavel.cs" />
+    <Compile Include="ParceiroComercial.cs" />
+    <Compile Include="Funcionarios\FuncionarioAutenticavel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Funcionarios\" />
