@@ -1,7 +1,11 @@
-﻿namespace ByteBank
+﻿using System;
+
+namespace ByteBank
 {
     public class ContaCorrente
     {
+        public static double TaxaOperacao { get; private set; }
+
         public static int TotalDeContasCriadas { get; private set; }
 
         public Cliente Titular { get; set; }
@@ -32,7 +36,18 @@
             Numero = numero;
             Saldo = 100;
 
-            ContaCorrente.TotalDeContasCriadas++;
+            try
+            {
+                TaxaOperacao = 30 / TotalDeContasCriadas;
+            }
+            catch (DivideByZeroException erro)
+            {
+                Console.WriteLine(erro.Message);
+                Console.WriteLine(erro.StackTrace);
+            }
+
+
+            TotalDeContasCriadas++;
         }
 
         public bool Sacar(double valor)

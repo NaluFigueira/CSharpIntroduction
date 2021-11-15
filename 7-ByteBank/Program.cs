@@ -27,6 +27,8 @@ namespace ByteBank
             Console.WriteLine("A titular da primeira conta é a " + primeiraContaCorrente.Titular.Nome + ".");
 
             Console.WriteLine("O total de classes criadas é " + ContaCorrente.TotalDeContasCriadas + ".");
+
+            Console.ReadLine();
         }
     }
 }
