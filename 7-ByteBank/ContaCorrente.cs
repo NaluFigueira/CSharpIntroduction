@@ -30,22 +30,33 @@ namespace ByteBank
             }
         }
 
+        public double SetTaxaOperacaoAoCriarConta()
+        {
+            try
+            {
+                return 30 / TotalDeContasCriadas;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Não é possível dividir por zero");
+                throw;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                throw;
+            }
+
+        }
+
         public ContaCorrente(int agencia, int numero)
         {
             Agencia = agencia;
             Numero = numero;
             Saldo = 100;
 
-            try
-            {
-                TaxaOperacao = 30 / TotalDeContasCriadas;
-            }
-            catch (DivideByZeroException erro)
-            {
-                Console.WriteLine(erro.Message);
-                Console.WriteLine(erro.StackTrace);
-            }
-
+            SetTaxaOperacaoAoCriarConta();
 
             TotalDeContasCriadas++;
         }
