@@ -10,9 +10,9 @@ namespace ByteBank
 
         public Cliente Titular { get; set; }
 
-        public int Agencia { get; set; }
+        public int Agencia { get; }
 
-        public int Numero { get; set; }
+        public int Numero { get; }
 
         private double _saldo;
 
@@ -30,34 +30,21 @@ namespace ByteBank
             }
         }
 
-        public double SetTaxaOperacaoAoCriarConta()
-        {
-            try
-            {
-                return 30 / TotalDeContasCriadas;
-            }
-            catch (DivideByZeroException)
-            {
-                Console.WriteLine("Não é possível dividir por zero");
-                throw;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-                throw;
-            }
-
-        }
-
         public ContaCorrente(int agencia, int numero)
         {
+            if (agencia <= 0)
+            {
+                throw new ArgumentException("A agência deve ser maior que zero.", nameof(agencia));
+            }
+
+            if (numero <= 0)
+            {
+                throw new ArgumentException("O número deve ser maior que zero.", nameof(numero));
+            }
+
             Agencia = agencia;
             Numero = numero;
             Saldo = 100;
-
-            SetTaxaOperacaoAoCriarConta();
-
             TotalDeContasCriadas++;
         }
 
