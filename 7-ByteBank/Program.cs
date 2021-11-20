@@ -10,7 +10,7 @@ namespace ByteBank
             {
 
                 Console.WriteLine("Criando conta corrente...");
-                ContaCorrente primeiraContaCorrente = new ContaCorrente(-1, 82507);
+                ContaCorrente primeiraContaCorrente = new ContaCorrente(1, 82507);
                 primeiraContaCorrente.Saldo = 200;
                 Console.WriteLine("O saldo atual é R$ " + primeiraContaCorrente.Saldo + ",00.");
 
@@ -31,10 +31,24 @@ namespace ByteBank
 
                 Console.WriteLine("O total de classes criadas é " + ContaCorrente.TotalDeContasCriadas + ".");
 
+                Console.WriteLine("Transferindo - R$ 200,00 da primeira para a segunda conta...");
+
+                primeiraContaCorrente.Transferir(-200, segundaContaCorrente);
+
+
             }
             catch (ArgumentException ex)
             {
                 Console.WriteLine("Argumento com problema: " + ex.ParamName);
+                Console.WriteLine(ex.Message);
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                Console.WriteLine("Ocorreu um erro ao sacar");
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
             }
             Console.ReadLine();
