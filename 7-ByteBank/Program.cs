@@ -1,63 +1,69 @@
 ﻿using System;
+using System.IO;
 
 namespace ByteBank
 {
     class MainClass
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             try
             {
-
-                Console.WriteLine("Criando conta corrente...");
-                ContaCorrente primeiraContaCorrente = new ContaCorrente(1, 82507);
-                primeiraContaCorrente.Saldo = 200;
-                Console.WriteLine("O saldo atual é R$ " + primeiraContaCorrente.Saldo + ",00.");
-
-                Console.WriteLine("Sacando R$ 100,00...");
-                primeiraContaCorrente.Sacar(100);
-                Console.WriteLine("O saldo atual é R$ " + primeiraContaCorrente.Saldo + ",00.");
-
-                Console.WriteLine("Criando outra conta corrente...");
-                ContaCorrente segundaContaCorrente = new ContaCorrente(868, 83001);
-                segundaContaCorrente.Saldo = 50;
-                Console.WriteLine("O saldo atual da primeira conta é R$ " + primeiraContaCorrente.Saldo + ",00.");
-                Console.WriteLine("O saldo atual da segunda conta é R$ " + segundaContaCorrente.Saldo + ",00.");
-
-                Console.WriteLine("Adicionando titular na primeira conta...");
-                primeiraContaCorrente.Titular = new Cliente();
-                primeiraContaCorrente.Titular.Nome = "Camila";
-                Console.WriteLine("A titular da primeira conta é a " + primeiraContaCorrente.Titular.Nome + ".");
-
-                Console.WriteLine("O total de classes criadas é " + ContaCorrente.TotalDeContasCriadas + ".");
-
-                Console.WriteLine("Transferindo R$ 200,00 da primeira para a segunda conta...");
-
-                primeiraContaCorrente.Transferir(200, segundaContaCorrente);
-
-
+                CarregarContas();
             }
-            /*catch (ArgumentException ex)
+            catch (Exception)
             {
-                Console.WriteLine("Argumento com problema: " + ex.ParamName);
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("CATCH NO METODO MAIN");
             }
-            catch (SaldoInsuficienteException ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Message);
-            }*/
-            catch (OperacaoFinanceiraException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
 
-                Console.WriteLine("Informações da INNER EXCEPTION (exceção interna):");
-
-                Console.WriteLine(ex.InnerException.Message);
-                Console.WriteLine(ex.InnerException.StackTrace);
-            }
+            Console.WriteLine("Execução finalizada. Tecle enter para sair.");
             Console.ReadLine();
+        }
+
+        private static void CarregarContas()
+        {
+            using (LeitorDeArquivo leitor = new LeitorDeArquivo("contas.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
+
+            /*LeitorDeArquivo leitor = null;
+            try
+            {
+                leitor = new LeitorDeArquivo("contas.txt");
+
+                leitor.LerProximaLinha();
+                leitor.LerProximaLinha();
+                leitor.LerProximaLinha();
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Exceção do tipo IOException capturada e tratada!");
+            }
+            finally
+            {
+                if (leitor != null)
+                {
+                    leitor.Fechar();
+                }
+            }*/
+        }
+
+        private static void TestaInnerException()
+        {
+            try
+            {
+                ContaCorrente conta1 = new ContaCorrente(4564, 789684);
+                ContaCorrente conta2 = new ContaCorrente(7891, 456794);
+
+                // conta1.Transferir(10000, conta2);
+                conta1.Sacar(10000);
+            }
+            catch (OperacaoFinanceiraException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+            }
         }
     }
 }

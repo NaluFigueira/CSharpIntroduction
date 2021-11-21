@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
-    <ProjectGuid>{19F86B43-A234-45A1-A68A-F4374DE32182}</ProjectGuid>
+    <ProjectGuid>{9DA0C6CC-50E4-428C-83E2-099278051563}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ByteBank</RootNamespace>
-    <AssemblyName>7-ByteBank</AssemblyName>
+    <RootNamespace>LeitorDeArquivo</RootNamespace>
+    <AssemblyName>LeitorDeArquivo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
@@ -34,11 +34,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ContaCorrente.cs" />
-    <Compile Include="Cliente.cs" />
-    <Compile Include="SaldoInsuficienteException.cs" />
-    <Compile Include="OperacaoFinanceiraException.cs" />
-    <Compile Include="LeitorDeArquivo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
