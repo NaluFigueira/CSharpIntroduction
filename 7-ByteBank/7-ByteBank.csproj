@@ -37,6 +37,7 @@
     <Compile Include="ContaCorrente.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="SaldoInsuficienteException.cs" />
+    <Compile Include="OperacaoFinanceiraException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

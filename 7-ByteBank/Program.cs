@@ -31,25 +31,31 @@ namespace ByteBank
 
                 Console.WriteLine("O total de classes criadas é " + ContaCorrente.TotalDeContasCriadas + ".");
 
-                Console.WriteLine("Transferindo - R$ 200,00 da primeira para a segunda conta...");
+                Console.WriteLine("Transferindo R$ 200,00 da primeira para a segunda conta...");
 
-                primeiraContaCorrente.Transferir(-200, segundaContaCorrente);
+                primeiraContaCorrente.Transferir(200, segundaContaCorrente);
 
 
             }
-            catch (ArgumentException ex)
+            /*catch (ArgumentException ex)
             {
                 Console.WriteLine("Argumento com problema: " + ex.ParamName);
                 Console.WriteLine(ex.Message);
             }
             catch (SaldoInsuficienteException ex)
             {
-                Console.WriteLine("Ocorreu um erro ao sacar");
+                Console.WriteLine(ex.StackTrace);
                 Console.WriteLine(ex.Message);
-            }
-            catch (Exception ex)
+            }*/
+            catch (OperacaoFinanceiraException ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+
+                Console.WriteLine("Informações da INNER EXCEPTION (exceção interna):");
+
+                Console.WriteLine(ex.InnerException.Message);
+                Console.WriteLine(ex.InnerException.StackTrace);
             }
             Console.ReadLine();
         }
