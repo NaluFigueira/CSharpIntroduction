@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7-ByteBank", "7-ByteBank\7-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBankRh", "ByteBankRh\ByteBankRh.csproj", "{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.SistemaAgencia", "ByteBank.SistemaAgencia\ByteBank.SistemaAgencia.csproj", "{B8536B16-9F18-45B2-8B97-A81A457AFC05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.Modelos", "ByteBank.Modelos\ByteBank.Modelos.csproj", "{C2175F0D-7024-465E-947F-C0FB51887A9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -69,6 +73,14 @@ Global
 		{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}.Debug|anycpu.Build.0 = Debug|anycpu
 		{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}.Release|anycpu.ActiveCfg = Release|anycpu
 		{F596E952-9EB6-47C9-A46F-62E8A9CFEAC6}.Release|anycpu.Build.0 = Release|anycpu
+		{B8536B16-9F18-45B2-8B97-A81A457AFC05}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{B8536B16-9F18-45B2-8B97-A81A457AFC05}.Debug|anycpu.Build.0 = Debug|anycpu
+		{B8536B16-9F18-45B2-8B97-A81A457AFC05}.Release|anycpu.ActiveCfg = Release|anycpu
+		{B8536B16-9F18-45B2-8B97-A81A457AFC05}.Release|anycpu.Build.0 = Release|anycpu
+		{C2175F0D-7024-465E-947F-C0FB51887A9C}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{C2175F0D-7024-465E-947F-C0FB51887A9C}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{C2175F0D-7024-465E-947F-C0FB51887A9C}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{C2175F0D-7024-465E-947F-C0FB51887A9C}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
