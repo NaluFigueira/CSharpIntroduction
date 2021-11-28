@@ -8,13 +8,25 @@ namespace ByteBank.SistemaAgencia
     {
         public static void Main(string[] args)
         {
-            string url = "pagina?argumentos";
+            try
+            {
+                string url = "cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
 
-            string argumentos = url.Substring(7);
+                ExtratorValorDeArgumentosURL extrator =
+                    new ExtratorValorDeArgumentosURL(url);
 
-            Console.WriteLine(argumentos);
+                Console.WriteLine(extrator.GetValor("valor"));
 
-            Console.ReadLine();
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
         }
     }
 }
