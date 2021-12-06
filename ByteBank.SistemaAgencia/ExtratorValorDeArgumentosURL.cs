@@ -13,6 +13,9 @@ namespace ByteBank.SistemaAgencia
                 string exceptionMessage = "O argumento " + nameof(url) +
                     " não pode ser null ou uma string vazia.";
                 throw new ArgumentException(exceptionMessage);
+            } else if(url.StartsWith("https://www.bytebank.com.br/cambio?") == false)
+            {
+                throw new ArgumentException("URL não encontrada");
             }
 
             int indiceInterrogacao = url.IndexOf('?');
@@ -24,9 +27,21 @@ namespace ByteBank.SistemaAgencia
 
         public string GetValor(string nomeParametro)
         {
-            int indiceParametro = URL.IndexOf(nomeParametro);
+            string argumentosEmCaixaAlta = _argumentos.ToUpper();
+            string termo = nomeParametro.ToUpper() + '=';
 
-            return URL.Substring(indiceParametro + nomeParametro.Length + 1);
+            int indiceParametro = argumentosEmCaixaAlta.IndexOf(termo);
+            int indiceArgumento = indiceParametro + termo.Length;
+
+            string valorDoArgumento = _argumentos.Substring(indiceArgumento);
+            int indiceEComercial = valorDoArgumento.IndexOf('&');
+
+            if (indiceEComercial > -1)
+            {
+                valorDoArgumento = valorDoArgumento.Remove(indiceEComercial);
+            }
+
+            return valorDoArgumento;
         }
     }
 }
