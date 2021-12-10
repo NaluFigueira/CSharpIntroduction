@@ -13,17 +13,23 @@ namespace ByteBank.SistemaAgencia
                 ListaDeContaCorrente contas = new ListaDeContaCorrente();
                 ContaCorrente conta = new ContaCorrente(874, 1234567);
 
-                contas.Adicionar(new ContaCorrente(874, 1234568));
-                contas.Adicionar(new ContaCorrente(874, 1234569));
-                contas.Adicionar(conta);
-                contas.Adicionar(new ContaCorrente(874, 1234510));
-                contas.Adicionar(new ContaCorrente(874, 1234511));
+                contas.AdicionarVarios(
+                    new ContaCorrente(874, 1234568),
+                    new ContaCorrente(874, 1234569),
+                    conta,
+                    new ContaCorrente(874, 1234510),
+                    new ContaCorrente(874, 1234511)
+                );
 
                 contas.EscreverListaNaTela();
 
                 contas.Remover(conta);
 
                 contas.EscreverListaNaTela();
+
+                Console.WriteLine(
+                    $"Acessando pelo indexador a primeira conta: {contas[0]}"
+                );
 
             }
             catch (Exception ex)

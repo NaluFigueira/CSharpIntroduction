@@ -23,7 +23,15 @@ namespace ByteBank.SistemaAgencia
             _proximaPosicao++;
         }
 
-        public int EncontrarIndiceConta(ContaCorrente conta)
+        public void AdicionarVarios(params ContaCorrente[] contas)
+        {
+            foreach (ContaCorrente conta in contas)
+            {
+                Adicionar(conta);
+            }
+        }
+
+        public int GetIndiceConta(ContaCorrente conta)
         {
             for (int i = 0; i < _proximaPosicao; i++)
             {
@@ -39,7 +47,7 @@ namespace ByteBank.SistemaAgencia
 
         public void Remover(ContaCorrente conta)
         {
-            int indiceConta = EncontrarIndiceConta(conta);
+            int indiceConta = GetIndiceConta(conta);
 
             if (indiceConta == -1)
             {
@@ -80,6 +88,23 @@ namespace ByteBank.SistemaAgencia
             for (int i = 0; i < _proximaPosicao; i++)
             {
                 Console.WriteLine($"Lista[{i}] = {_contas[i]}");
+            }
+        }
+
+        public ContaCorrente GetContaPeloIndice(int indice)
+        {
+            if(indice < 0 || indice >= _proximaPosicao)
+            {
+                throw new ArgumentOutOfRangeException("Índice inválido.");
+            }
+            return _contas[indice];
+        }
+
+        public ContaCorrente this[int indice]
+        {
+            get
+            {
+                return GetContaPeloIndice(indice);
             }
         }
     }
