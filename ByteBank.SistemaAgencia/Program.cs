@@ -8,27 +8,18 @@ namespace ByteBank.SistemaAgencia
     {
         public static void Main(string[] args)
         {
-            try
+            ContaCorrente[] contas = new ContaCorrente[]
             {
-                string argumentos = "moedaOrigem=real&moedaDestino=dolar&valor=1500";
-                string url = "https://www.bytebank.com.br/cambio?"+argumentos;
+                new ContaCorrente(874, 1234567),
+                new ContaCorrente(874, 1234567),
+                new ContaCorrente(874, 1234567),
+                new ContaCorrente(874, 1234567),
+            };
 
-                ExtratorValorDeArgumentosURL extrator =
-                    new ExtratorValorDeArgumentosURL(url);
-
-                Console.WriteLine("Moeda de origem: " + extrator.GetValor("moedaOrigem"));
-                Console.WriteLine("Moeda de destino: " + extrator.GetValor("moedaDestino"));
-                Console.WriteLine("Valor: " + extrator.GetValor("valor"));
-
-                Console.ReadLine();
-            }
-            catch (Exception ex)
+            for(int indice = 0; indice < contas.Length; indice++)
             {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.ReadLine();
+                ContaCorrente contaAtual = contas[indice];
+                Console.WriteLine($"Conta {indice + 1}: {contaAtual}");
             }
         }
     }
