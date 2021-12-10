@@ -10,7 +10,7 @@ namespace ByteBank.SistemaAgencia
         {
             try
             {
-                ListaDeContaCorrente contas = new ListaDeContaCorrente();
+                Lista<ContaCorrente> contas = new Lista<ContaCorrente>();
                 ContaCorrente conta = new ContaCorrente(874, 1234567);
 
                 contas.AdicionarVarios(
