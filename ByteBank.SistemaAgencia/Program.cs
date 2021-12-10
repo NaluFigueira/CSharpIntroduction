@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ByteBank.Modelos;
 using Humanizer;
 
@@ -10,7 +11,7 @@ namespace ByteBank.SistemaAgencia
         {
             try
             {
-                Lista<ContaCorrente> contas = new Lista<ContaCorrente>();
+                List<ContaCorrente> contas = new List<ContaCorrente>();
                 ContaCorrente conta = new ContaCorrente(874, 1234567);
 
                 contas.AdicionarVarios(
@@ -23,7 +24,7 @@ namespace ByteBank.SistemaAgencia
 
                 contas.EscreverListaNaTela();
 
-                contas.Remover(conta);
+                contas.Remove(conta);
 
                 contas.EscreverListaNaTela();
 

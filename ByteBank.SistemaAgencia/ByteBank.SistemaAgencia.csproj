@@ -40,6 +40,7 @@
     <Compile Include="ExtratorValorDeArgumentosURL.cs" />
     <Compile Include="ListaDeContaCorrente.cs" />
     <Compile Include="Lista.cs" />
+    <Compile Include="ListExtendida.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ByteBank.Modelos\ByteBank.Modelos.csproj">
