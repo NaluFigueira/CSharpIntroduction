@@ -23,6 +23,38 @@ namespace ByteBank.SistemaAgencia
             _proximaPosicao++;
         }
 
+        public int EncontrarIndiceConta(ContaCorrente conta)
+        {
+            for (int i = 0; i < _proximaPosicao; i++)
+            {
+                ContaCorrente contaAtual = _contas[i];
+                if (contaAtual.Equals(conta))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public void Remover(ContaCorrente conta)
+        {
+            int indiceConta = EncontrarIndiceConta(conta);
+
+            if (indiceConta == -1)
+            {
+                throw new Exception("Não foi possível encontrar essa conta.");
+            }
+
+            for (int i = indiceConta; i < _proximaPosicao - 1; i++)
+            {
+                _contas[i] = _contas[i + 1];
+            }
+
+            _proximaPosicao--;
+            _contas[_proximaPosicao] = null;
+        }
+
         private void VerificaCapacidade(int tamanhoNecessario)
         {
             if (_contas.Length >= tamanhoNecessario)
@@ -33,11 +65,6 @@ namespace ByteBank.SistemaAgencia
             ContaCorrente[] novoArray =
                 new ContaCorrente[tamanhoNecessario];
 
-            for (int indice = 0; indice < _contas.Length; indice++)
-            {
-                novoArray[indice] = _contas[indice];
-            }
-
             Array.Copy(
                 sourceArray: _contas,
                 destinationArray: novoArray,
@@ -45,6 +72,15 @@ namespace ByteBank.SistemaAgencia
             );
 
             _contas = novoArray;
+        }
+
+        public void EscreverListaNaTela()
+        {
+            Console.WriteLine("--------------");
+            for (int i = 0; i < _proximaPosicao; i++)
+            {
+                Console.WriteLine($"Lista[{i}] = {_contas[i]}");
+            }
         }
     }
 }
