@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ByteBank.Modelos;
-using Humanizer;
+using ByteBank.SistemaAgencia.Comparadores;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -15,11 +15,11 @@ namespace ByteBank.SistemaAgencia
                 ContaCorrente conta = new ContaCorrente(874, 1234567);
 
                 contas.AdicionarVarios(
-                    new ContaCorrente(874, 1234568),
-                    new ContaCorrente(874, 1234569),
+                    new ContaCorrente(876, 1234569),
+                    new ContaCorrente(875, 1234568),
                     conta,
-                    new ContaCorrente(874, 1234510),
-                    new ContaCorrente(874, 1234511)
+                    new ContaCorrente(879, 1234566),
+                    new ContaCorrente(878, 1234565)
                 );
 
                 contas.EscreverListaNaTela();
@@ -31,6 +31,19 @@ namespace ByteBank.SistemaAgencia
                 Console.WriteLine(
                     $"Acessando pelo indexador a primeira conta: {contas[0]}"
                 );
+
+
+                contas.Sort();
+
+                Console.WriteLine("Depois de ordenar pelo número da conta:");
+
+                contas.EscreverListaNaTela();
+
+                contas.Sort(new ComparadorContaCorrentePorAgencia());
+
+                Console.WriteLine("Depois de ordenar pelo número da agência:");
+
+                contas.EscreverListaNaTela();
 
             }
             catch (Exception ex)

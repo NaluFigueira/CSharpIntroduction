@@ -41,6 +41,7 @@
     <Compile Include="ListaDeContaCorrente.cs" />
     <Compile Include="Lista.cs" />
     <Compile Include="ListExtendida.cs" />
+    <Compile Include="Comparadores\ComparadorContaCorrentePorAgencia.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ByteBank.Modelos\ByteBank.Modelos.csproj">
@@ -50,6 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Comparadores\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
