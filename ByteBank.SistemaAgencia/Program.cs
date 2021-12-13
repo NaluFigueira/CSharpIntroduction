@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ByteBank.Modelos;
 using ByteBank.SistemaAgencia.Comparadores;
 
@@ -33,9 +34,20 @@ namespace ByteBank.SistemaAgencia
                 );
 
 
+                IOrderedEnumerable<ContaCorrente> contasOrdenadasPorNumero =
+                    contas.OrderBy(contaAtual => contaAtual.Numero);
+
+                Console.WriteLine("Depois de ordenar pelo número da conta usando order by:");
+
+                foreach (var contaOrdenada in contasOrdenadasPorNumero)
+                {
+                    Console.WriteLine(contaOrdenada.Numero);
+                }
+
+
                 contas.Sort();
 
-                Console.WriteLine("Depois de ordenar pelo número da conta:");
+                Console.WriteLine("Depois de ordenar pelo número da conta usando sort:");
 
                 contas.EscreverListaNaTela();
 
