@@ -20,7 +20,8 @@ namespace ByteBank.SistemaAgencia
                     new ContaCorrente(875, 1234568),
                     conta,
                     new ContaCorrente(879, 1234566),
-                    new ContaCorrente(878, 1234565)
+                    new ContaCorrente(878, 1234565),
+                    null
                 );
 
                 contas.EscreverListaNaTela();
@@ -33,9 +34,9 @@ namespace ByteBank.SistemaAgencia
                     $"Acessando pelo indexador a primeira conta: {contas[0]}"
                 );
 
-
-                IOrderedEnumerable<ContaCorrente> contasOrdenadasPorNumero =
-                    contas.OrderBy(contaAtual => contaAtual.Numero);
+                var contasOrdenadasPorNumero = contas
+                    .Where(c => c != null)
+                    .OrderBy(contaAtual => contaAtual.Numero);
 
                 Console.WriteLine("Depois de ordenar pelo número da conta usando order by:");
 
@@ -45,17 +46,17 @@ namespace ByteBank.SistemaAgencia
                 }
 
 
-                contas.Sort();
+                //contas.Sort();
 
-                Console.WriteLine("Depois de ordenar pelo número da conta usando sort:");
+                //Console.WriteLine("Depois de ordenar pelo número da conta usando sort:");
 
-                contas.EscreverListaNaTela();
+                //contas.EscreverListaNaTela();
 
-                contas.Sort(new ComparadorContaCorrentePorAgencia());
+                //contas.Sort(new ComparadorContaCorrentePorAgencia());
 
-                Console.WriteLine("Depois de ordenar pelo número da agência:");
+                //Console.WriteLine("Depois de ordenar pelo número da agência:");
 
-                contas.EscreverListaNaTela();
+                //contas.EscreverListaNaTela();
 
             }
             catch (Exception ex)
