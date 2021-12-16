@@ -37,6 +37,7 @@
     <Compile Include="Modelos\Cliente.cs" />
     <Compile Include="Modelos\ContaCorrente.cs" />
     <Compile Include="LidandoComStreamDiretamente.cs" />
+    <Compile Include="UsandoStreamReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modelos\" />
