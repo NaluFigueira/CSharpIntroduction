@@ -38,6 +38,7 @@
     <Compile Include="Modelos\ContaCorrente.cs" />
     <Compile Include="LidandoComStreamDiretamente.cs" />
     <Compile Include="UsandoStreamReader.cs" />
+    <Compile Include="UsandoBinaryWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modelos\" />
