@@ -1,6 +1,5 @@
 ﻿using System;
-using DesignPatterns.StrategyPattern;
-using DesignPatterns.StrategyPattern.Investimento;
+using DesignPatterns.ChainOfResponsibility;
 
 namespace DesignPatterns
 {
@@ -32,27 +31,42 @@ namespace DesignPatterns
 
             // Strategy Pattern Example 2
 
-            var conservador = new Conservador();
-            var moderado = new Moderado();
-            var arrojado = new Arrojado();
+            //var conservador = new Conservador();
+            //var moderado = new Moderado();
+            //var arrojado = new Arrojado();
 
-            var conta = new Conta();
+            //var conta = new Conta();
 
-            conta.Depositar(1000);
+            //conta.Depositar(1000);
 
-            var realizadorDeInvestimentosConservador  = new RealizadorDeInvestimentos(conta, conservador);
-            var realizadorDeInvestimentosModerado  = new RealizadorDeInvestimentos(conta, moderado);
-            var realizadorDeInvestimentosArrojado = new RealizadorDeInvestimentos(conta, arrojado);
+            //var realizadorDeInvestimentosConservador  = new RealizadorDeInvestimentos(conta, conservador);
+            //var realizadorDeInvestimentosModerado  = new RealizadorDeInvestimentos(conta, moderado);
+            //var realizadorDeInvestimentosArrojado = new RealizadorDeInvestimentos(conta, arrojado);
 
-            Console.WriteLine($"Valor do saldo: {conta.Saldo}");
-            Console.WriteLine("Conservador:");
-            realizadorDeInvestimentosConservador.Aplicar();
+            //Console.WriteLine($"Valor do saldo: {conta.Saldo}");
+            //Console.WriteLine("Conservador:");
+            //realizadorDeInvestimentosConservador.Aplicar();
 
-            Console.WriteLine("Moderado:");
-            realizadorDeInvestimentosModerado.Aplicar();
+            //Console.WriteLine("Moderado:");
+            //realizadorDeInvestimentosModerado.Aplicar();
 
-            Console.WriteLine("Arrojado:");
-            realizadorDeInvestimentosArrojado.Aplicar();
+            //Console.WriteLine("Arrojado:");
+            //realizadorDeInvestimentosArrojado.Aplicar();
+
+            // Chain of responsibility Example
+
+            var orcamento = new Orcamento();
+
+            orcamento.AdicionarItem(new Item("Fogao", 250));
+            orcamento.AdicionarItem(new Item("Geladeira", 250));
+            orcamento.AdicionarItem(new Item("Microondas", 250));
+            orcamento.AdicionarItem(new Item("Batedeira", 250));
+            //orcamento.AdicionarItem(new Item("LAPIS", 250));
+            //orcamento.AdicionarItem(new Item("CANETA", 250));
+
+            var calculadorDescontos = new CalculadorDescontos(orcamento);
+
+            calculadorDescontos.ExibirDescontoCalculado();
 
         }
     }
