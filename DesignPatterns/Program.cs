@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.ChainOfResponsibility;
+using DesignPatterns.ChainOfResponsibility.Requisicao;
 
 namespace DesignPatterns
 {
@@ -53,21 +54,39 @@ namespace DesignPatterns
             //Console.WriteLine("Arrojado:");
             //realizadorDeInvestimentosArrojado.Aplicar();
 
-            // Chain of responsibility Example
+            // Chain of responsibility Example 1
 
-            var orcamento = new Orcamento();
+            //var orcamento = new Orcamento();
 
-            orcamento.AdicionarItem(new Item("Fogao", 250));
-            orcamento.AdicionarItem(new Item("Geladeira", 250));
-            orcamento.AdicionarItem(new Item("Microondas", 250));
-            orcamento.AdicionarItem(new Item("Batedeira", 250));
+            //orcamento.AdicionarItem(new Item("Fogao", 250));
+            //orcamento.AdicionarItem(new Item("Geladeira", 250));
+            //orcamento.AdicionarItem(new Item("Microondas", 250));
+            //orcamento.AdicionarItem(new Item("Batedeira", 250));
             //orcamento.AdicionarItem(new Item("LAPIS", 250));
             //orcamento.AdicionarItem(new Item("CANETA", 250));
 
-            var calculadorDescontos = new CalculadorDescontos(orcamento);
+            //var calculadorDescontos = new CalculadorDescontos(orcamento);
 
-            calculadorDescontos.ExibirDescontoCalculado();
+            //calculadorDescontos.ExibirDescontoCalculado();
 
+            // Chain of responsibility Example 2
+
+            var conta = new Conta("Teste", 1000);
+            var requisicao1 = new Requisicao(Formato.PORCENTO);
+            var requisicao2 = new Requisicao(Formato.XML);
+            var requisicao3 = new Requisicao(Formato.CSV);
+
+            var enfileiradorRequisicoes = new EnfileiradorRequisicoes(requisicao1, conta);
+
+            enfileiradorRequisicoes.ProcessarRequisicao();
+
+            enfileiradorRequisicoes.Requisicao = requisicao2;
+
+            enfileiradorRequisicoes.ProcessarRequisicao();
+
+            enfileiradorRequisicoes.Requisicao = requisicao3;
+
+            enfileiradorRequisicoes.ProcessarRequisicao();
         }
     }
 }
