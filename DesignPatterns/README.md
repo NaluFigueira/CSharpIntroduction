@@ -1,17 +1,37 @@
 # Design Patterns with C#
 
 - [Strategy Pattern](#strategy-pattern)
+- [Chain of Responsibility](#chain-of-responsibility)
 
 ## Strategy Pattern
 
 ![Classes diagram showing the strategy pattern](images/strategy.png "Strategy Pattern Example")
 
- <sup>Image by Refactoring Guru </sup>
+ <sup>Image by Refactoring Guru</sup>
 
 The image above illustrates how this pattern works:
 
 - The navigator class has a private member called `routeStrategy`, which is an interface.
 - The interface declares a public method `buildRoute`.
-- The classes `Road`, `PublicTransport` and `Walking` implement the interface `RouteStrategy`, where `buildRoute` follows their respective strategy. 
+- The classes `Road`, `PublicTransport` and `Walking` implement the interface `RouteStrategy`, where `buildRoute` follows their respective routing strategy. 
 
 The Strategy Pattern is useful when we have a group of similar algorithms and we need to alternate between them in different places of the application.
+
+## Chain of Responsibility
+
+![Classes diagram showing the chain of responsibility pattern](images/chainOfResponsibility.png "Chain of Responsibility Pattern Example")
+
+ <sup>Image by Refactoring Guru</sup>
+
+ The image above illustrates how this pattern works:
+
+- There's a interface called `Handler` that contains two methods: `setNext` and `handle`. `setNext` sets which handler should be executed in case the requirements for the current handler aren't met. While `handle` is the action itself, that should validate if the request meets its requirements. 
+- `BaseHandler` is optional, it should implement boilerplate code for the concrete handlers such as calling the next handler or treating default exceptions.
+- The `ConcreteHandlers` extend from `BaseHandler`, if it was implemented, or implement the `Handler` interface otherwise. According to Refactoring Guru:
+
+> Each handler must decide whether to process it and, additionally, whether to pass it along the chain.
+
+- The `Client` class exemplifies the use of the `ConcreteHandlers`, it instantiates three types of handlers and sets the chain accordingly. After that it calls the `handle` method from the first handler in the chain.
+
+
+The Chain of Responsibility Pattern is useful when we have a sequence of possible actions that should be taken in case the request meets some criteria.
