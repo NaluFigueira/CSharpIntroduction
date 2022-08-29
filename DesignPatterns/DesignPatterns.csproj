@@ -12,6 +12,9 @@
     <None Remove="ChainOfResponsibility\" />
     <None Remove="ChainOfResponsibility\Desconto\" />
     <None Remove="ChainOfResponsibility\Requisicao\" />
+    <None Remove="TemplatePattern\" />
+    <None Remove="TemplatePattern\Imposto\" />
+    <None Remove="TemplatePattern\Relatorio\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -20,5 +23,8 @@
     <Folder Include="ChainOfResponsibility\" />
     <Folder Include="ChainOfResponsibility\Desconto\" />
     <Folder Include="ChainOfResponsibility\Requisicao\" />
+    <Folder Include="TemplatePattern\" />
+    <Folder Include="TemplatePattern\Imposto\" />
+    <Folder Include="TemplatePattern\Relatorio\" />
   </ItemGroup>
 </Project>
