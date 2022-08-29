@@ -2,6 +2,7 @@
 
 - [Strategy Pattern](#strategy-pattern)
 - [Chain of Responsibility](#chain-of-responsibility)
+- [Template Pattern](#template-pattern)
 
 ## Strategy Pattern
 
@@ -35,3 +36,16 @@ The Strategy Pattern is useful when we have a group of similar algorithms and we
 
 
 The Chain of Responsibility Pattern is useful when we have a sequence of possible actions that should be taken in case the request meets some criteria.
+
+## Template Pattern
+
+![Classes diagram showing the template pattern](images/template.png "Template Pattern Example")
+
+ <sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- The `GameAI` abstract class has three implemented methods: `takeTurn`, `collectResources` and `attack`. These methods implementation are common between children classes, while the remaining methods implementation vary between them.
+- Children classes `OrcsAI` and `MonstersAI` inherit `GameAI` and override the abstract methods according to their specific requirements.
+
+The Template Pattern is useful when we have similar code structure in multiple classes and only some details change from code to code, that way avoiding code duplication.
