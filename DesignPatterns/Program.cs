@@ -1,6 +1,7 @@
 ﻿using System;
-using DesignPatterns.ChainOfResponsibility;
-using DesignPatterns.ChainOfResponsibility.Requisicao;
+using System.Collections;
+using DesignPatterns.TemplatePattern;
+using DesignPatterns.TemplatePattern.Relatorio;
 
 namespace DesignPatterns
 {
@@ -71,22 +72,53 @@ namespace DesignPatterns
 
             // Chain of responsibility Example 2
 
-            var conta = new Conta("Teste", 1000);
-            var requisicao1 = new Requisicao(Formato.PORCENTO);
-            var requisicao2 = new Requisicao(Formato.XML);
-            var requisicao3 = new Requisicao(Formato.CSV);
+            //var conta = new Conta("Teste", 1000);
+            //var requisicao1 = new Requisicao(Formato.PORCENTO);
+            //var requisicao2 = new Requisicao(Formato.XML);
+            //var requisicao3 = new Requisicao(Formato.CSV);
 
-            var enfileiradorRequisicoes = new EnfileiradorRequisicoes(requisicao1, conta);
+            //var enfileiradorRequisicoes = new EnfileiradorRequisicoes(requisicao1, conta);
 
-            enfileiradorRequisicoes.ProcessarRequisicao();
+            //enfileiradorRequisicoes.ProcessarRequisicao();
 
-            enfileiradorRequisicoes.Requisicao = requisicao2;
+            //enfileiradorRequisicoes.Requisicao = requisicao2;
 
-            enfileiradorRequisicoes.ProcessarRequisicao();
+            //enfileiradorRequisicoes.ProcessarRequisicao();
 
-            enfileiradorRequisicoes.Requisicao = requisicao3;
+            //enfileiradorRequisicoes.Requisicao = requisicao3;
 
-            enfileiradorRequisicoes.ProcessarRequisicao();
+            //enfileiradorRequisicoes.ProcessarRequisicao();
+
+            // Template Pattern Example 1
+
+            //var orcamento = new Orcamento();
+
+            //orcamento.AdicionarItem(new Item("Fogao", 250));
+            //orcamento.AdicionarItem(new Item("Geladeira", 250));
+            //orcamento.AdicionarItem(new Item("Microondas", 250));
+            //orcamento.AdicionarItem(new Item("Batedeira", 250));
+
+            //var calculadorDeImposto = new CalculadorDeImposto(orcamento, new IHIT());
+
+            //calculadorDeImposto.ExibirCalculoImposto();
+
+            // Template Pattern Example 2
+
+            var contas = new Conta[3]
+             {
+                new Conta("1", "Fulano", 2000, "0"),
+                new Conta("2", "Beltrano", 100, "1"),
+                new Conta("3", "Ciclano", 95, "2"),
+            };
+
+            Console.WriteLine("Relatorio simples");
+            var relatorioSimples = new Simples(contas);
+            relatorioSimples.ImprimirRelatorio();
+
+
+            Console.WriteLine("Relatorio complexo");
+            var relatorioComplexo = new Complexo(contas);
+            relatorioComplexo.ImprimirRelatorio();
         }
     }
 }
