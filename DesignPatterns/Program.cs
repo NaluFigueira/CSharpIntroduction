@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
-using DesignPatterns.TemplatePattern;
-using DesignPatterns.TemplatePattern.Relatorio;
+using DesignPatterns.Decorator;
 
 namespace DesignPatterns
 {
@@ -104,21 +103,51 @@ namespace DesignPatterns
 
             // Template Pattern Example 2
 
-            var contas = new Conta[3]
-             {
-                new Conta("1", "Fulano", 2000, "0"),
-                new Conta("2", "Beltrano", 100, "1"),
-                new Conta("3", "Ciclano", 95, "2"),
-            };
+            //var contas = new Conta[3]
+            // {
+            //    new Conta("1", "Fulano", 2000, "0"),
+            //    new Conta("2", "Beltrano", 100, "1"),
+            //    new Conta("3", "Ciclano", 95, "2"),
+            //};
 
-            Console.WriteLine("Relatorio simples");
-            var relatorioSimples = new Simples(contas);
-            relatorioSimples.ImprimirRelatorio();
+            //Console.WriteLine("Relatorio simples");
+            //var relatorioSimples = new Simples(contas);
+            //relatorioSimples.ImprimirRelatorio();
 
 
-            Console.WriteLine("Relatorio complexo");
-            var relatorioComplexo = new Complexo(contas);
-            relatorioComplexo.ImprimirRelatorio();
+            //Console.WriteLine("Relatorio complexo");
+            //var relatorioComplexo = new Complexo(contas);
+            //relatorioComplexo.ImprimirRelatorio();
+
+            //Decorator Pattern Example 1
+
+            var iss = new ISS();
+            var icms = new ICMS(iss);
+            var muitoAlto = new MuitoAlto(icms);
+            var icpp = new ICPP();
+            var ikcv = new IKCV(iss);
+
+            var orcamento = new Orcamento();
+            var item = new Item("item", 1000);
+
+            orcamento.AdicionarItem(item);
+
+            Console.WriteLine($"Valor do orçamento: {orcamento.Valor}");
+            Console.WriteLine("ISS:");
+            Console.WriteLine(iss.Calcula(orcamento));
+
+            Console.WriteLine("ICMS:");
+            Console.WriteLine(icms.Calcula(orcamento));
+
+            Console.WriteLine("Muito Alto:");
+            Console.WriteLine(muitoAlto.Calcula(orcamento));
+
+            Console.WriteLine("ICPP:");
+            Console.WriteLine(icpp.Calcula(orcamento));
+
+            Console.WriteLine("IKCV:");
+            Console.WriteLine(ikcv.Calcula(orcamento));
+
         }
     }
 }

@@ -15,6 +15,7 @@
     <None Remove="TemplatePattern\" />
     <None Remove="TemplatePattern\Imposto\" />
     <None Remove="TemplatePattern\Relatorio\" />
+    <None Remove="Decorator\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -26,5 +27,6 @@
     <Folder Include="TemplatePattern\" />
     <Folder Include="TemplatePattern\Imposto\" />
     <Folder Include="TemplatePattern\Relatorio\" />
+    <Folder Include="Decorator\" />
   </ItemGroup>
 </Project>
