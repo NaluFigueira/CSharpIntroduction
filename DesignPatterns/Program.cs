@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using DesignPatterns.Decorator.Filtro;
 using DesignPatterns.Decorator;
 
 namespace DesignPatterns
@@ -121,33 +123,61 @@ namespace DesignPatterns
 
             //Decorator Pattern Example 1
 
-            var iss = new ISS();
-            var icms = new ICMS(iss);
-            var muitoAlto = new MuitoAlto(icms);
-            var icpp = new ICPP();
-            var ikcv = new IKCV(iss);
+            //var iss = new ISS();
+            //var icms = new ICMS(iss);
+            //var muitoAlto = new MuitoAlto(icms);
+            //var icpp = new ICPP();
+            //var ikcv = new IKCV(iss);
 
-            var orcamento = new Orcamento();
-            var item = new Item("item", 1000);
+            //var orcamento = new Orcamento();
+            //var item = new Item("item", 1000);
 
-            orcamento.AdicionarItem(item);
+            //orcamento.AdicionarItem(item);
 
-            Console.WriteLine($"Valor do orçamento: {orcamento.Valor}");
-            Console.WriteLine("ISS:");
-            Console.WriteLine(iss.Calcula(orcamento));
+            //Console.WriteLine($"Valor do orçamento: {orcamento.Valor}");
+            //Console.WriteLine("ISS:");
+            //Console.WriteLine(iss.Calcula(orcamento));
 
-            Console.WriteLine("ICMS:");
-            Console.WriteLine(icms.Calcula(orcamento));
+            //Console.WriteLine("ICMS:");
+            //Console.WriteLine(icms.Calcula(orcamento));
 
-            Console.WriteLine("Muito Alto:");
-            Console.WriteLine(muitoAlto.Calcula(orcamento));
+            //Console.WriteLine("Muito Alto:");
+            //Console.WriteLine(muitoAlto.Calcula(orcamento));
 
-            Console.WriteLine("ICPP:");
-            Console.WriteLine(icpp.Calcula(orcamento));
+            //Console.WriteLine("ICPP:");
+            //Console.WriteLine(icpp.Calcula(orcamento));
 
-            Console.WriteLine("IKCV:");
-            Console.WriteLine(ikcv.Calcula(orcamento));
+            //Console.WriteLine("IKCV:");
+            //Console.WriteLine(ikcv.Calcula(orcamento));
 
+            //Decorator Pattern Example 2
+
+            var contas = new List<Conta>();
+
+            var contaComSaldoMaior500Mil = new Conta("maior500");
+            contaComSaldoMaior500Mil.Saldo = 600000;
+
+            var contaComSaldoMenor100 = new Conta("menor100");
+            contaComSaldoMenor100.Saldo = 50;
+
+            var contaMesNaoCorrente = new Conta("mesNaoCorrente");
+            contaMesNaoCorrente.DataAbertura = DateTime.Now.AddMonths(1);
+
+            contas.Add(contaComSaldoMaior500Mil);
+            contas.Add(contaComSaldoMenor100);
+            contas.Add(contaMesNaoCorrente);
+
+            var filtro1 = new DataAberturaMesCorrente(new SaldoMaior500Mil());
+            var filtro2 = new DataAberturaMesCorrente(new SaldoMenor100());
+            var filtro3 = new SaldoMenor100();
+            var filtro4 = new SaldoMaior500Mil();
+            var filtro5 = new DataAberturaMesCorrente();
+
+            filtro1.ExibirListaFiltrada(contas);
+            filtro2.ExibirListaFiltrada(contas);
+            filtro3.ExibirListaFiltrada(contas);
+            filtro4.ExibirListaFiltrada(contas);
+            filtro5.ExibirListaFiltrada(contas);
         }
     }
 }

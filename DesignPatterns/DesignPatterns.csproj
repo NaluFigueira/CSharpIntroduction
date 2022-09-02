@@ -16,6 +16,8 @@
     <None Remove="TemplatePattern\Imposto\" />
     <None Remove="TemplatePattern\Relatorio\" />
     <None Remove="Decorator\" />
+    <None Remove="Decorator\Imposto\" />
+    <None Remove="Decorator\Filtro\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -28,5 +30,7 @@
     <Folder Include="TemplatePattern\Imposto\" />
     <Folder Include="TemplatePattern\Relatorio\" />
     <Folder Include="Decorator\" />
+    <Folder Include="Decorator\Imposto\" />
+    <Folder Include="Decorator\Filtro\" />
   </ItemGroup>
 </Project>
