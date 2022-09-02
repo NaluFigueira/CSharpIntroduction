@@ -3,6 +3,7 @@
 - [Strategy Pattern](#strategy-pattern)
 - [Chain of Responsibility](#chain-of-responsibility)
 - [Template Pattern](#template-pattern)
+- [Decorator Pattern](#decorator-pattern)
 
 ## Strategy Pattern
 
@@ -49,3 +50,34 @@ The image above illustrates how this pattern works:
 - Children classes `OrcsAI` and `MonstersAI` inherit `GameAI` and override the abstract methods according to their specific requirements.
 
 The Template Pattern is useful when we have similar code structure in multiple classes and only some details change from code to code, that way avoiding code duplication.
+
+## Decorator Pattern
+
+![Classes diagram showing the decorator pattern](images/decorator.png "Decorator Pattern Example")
+
+ <sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a interface `Notifier` that contains a method that sends a message.
+- An abstract class called `BaseDecorator` has as its member a wrappee, which is a notifier. This wrappee is set on the constructor. Also there's a method send, that calls the wrappee's send method.
+- All three `SMSDecorator`, `FacebookDecorator` and `SlackDecorator` inherit the `BaseDecorator` class and override the send method to, besides calling the parent class send method, also calls its own send algorithm.
+- Therefore, the client class only needs to stack which notifiers should be executed together, as the code below exemplifies
+
+```csharp
+var stack = new Notifier();
+
+if(facebookEnabled) 
+{
+    stack = new FacebookDecorator(stack);
+}
+
+if(slackEnabled)
+{
+    stack = new SlackDecorator(stack);
+}
+
+app.setNotifier(stack);
+```
+
+The Decorator Pattern is useful when we have behaviors that could be composed by behaviors from other classes involved in the same hierarchy.
