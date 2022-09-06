@@ -18,6 +18,7 @@
     <None Remove="Decorator\" />
     <None Remove="Decorator\Imposto\" />
     <None Remove="Decorator\Filtro\" />
+    <None Remove="State\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -32,5 +33,6 @@
     <Folder Include="Decorator\" />
     <Folder Include="Decorator\Imposto\" />
     <Folder Include="Decorator\Filtro\" />
+    <Folder Include="State\" />
   </ItemGroup>
 </Project>

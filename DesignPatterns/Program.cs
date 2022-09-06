@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using DesignPatterns.Decorator.Filtro;
-using DesignPatterns.Decorator;
+using DesignPatterns.State;
 
 namespace DesignPatterns
 {
@@ -10,7 +9,9 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            //Strategy Pattern Example 1
+            /*
+             * Strategy Pattern Example 1
+             */
 
             //var iss = new ISS();
             //var icms = new ICMS();
@@ -32,7 +33,9 @@ namespace DesignPatterns
             //Console.WriteLine("ICCC:");
             //calculadorDeImpostoICCC.ExibirCalculoImposto();
 
-            // Strategy Pattern Example 2
+            /*
+             * Strategy Pattern Example 2
+             */
 
             //var conservador = new Conservador();
             //var moderado = new Moderado();
@@ -56,7 +59,9 @@ namespace DesignPatterns
             //Console.WriteLine("Arrojado:");
             //realizadorDeInvestimentosArrojado.Aplicar();
 
-            // Chain of responsibility Example 1
+            /*
+             * Chain of Responsibility Pattern Example 1
+             */
 
             //var orcamento = new Orcamento();
 
@@ -71,7 +76,9 @@ namespace DesignPatterns
 
             //calculadorDescontos.ExibirDescontoCalculado();
 
-            // Chain of responsibility Example 2
+            /*
+             * Chain of Responsibility Pattern Example 2
+             */
 
             //var conta = new Conta("Teste", 1000);
             //var requisicao1 = new Requisicao(Formato.PORCENTO);
@@ -90,7 +97,9 @@ namespace DesignPatterns
 
             //enfileiradorRequisicoes.ProcessarRequisicao();
 
-            // Template Pattern Example 1
+            /*
+             * Template Pattern Example 1
+             */
 
             //var orcamento = new Orcamento();
 
@@ -103,7 +112,9 @@ namespace DesignPatterns
 
             //calculadorDeImposto.ExibirCalculoImposto();
 
-            // Template Pattern Example 2
+            /*
+             * Template Pattern Example 2
+             */
 
             //var contas = new Conta[3]
             // {
@@ -121,7 +132,9 @@ namespace DesignPatterns
             //var relatorioComplexo = new Complexo(contas);
             //relatorioComplexo.ImprimirRelatorio();
 
-            //Decorator Pattern Example 1
+            /*
+             * Decorator Pattern Example 1
+             */
 
             //var iss = new ISS();
             //var icms = new ICMS(iss);
@@ -150,34 +163,59 @@ namespace DesignPatterns
             //Console.WriteLine("IKCV:");
             //Console.WriteLine(ikcv.Calcula(orcamento));
 
-            //Decorator Pattern Example 2
+            /*
+             * Decorator Pattern Example 2
+             */
 
-            var contas = new List<Conta>();
+            //var contas = new List<Conta>();
 
-            var contaComSaldoMaior500Mil = new Conta("maior500");
-            contaComSaldoMaior500Mil.Saldo = 600000;
+            //var contaComSaldoMaior500Mil = new Conta("maior500");
+            //contaComSaldoMaior500Mil.Saldo = 600000;
 
-            var contaComSaldoMenor100 = new Conta("menor100");
-            contaComSaldoMenor100.Saldo = 50;
+            //var contaComSaldoMenor100 = new Conta("menor100");
+            //contaComSaldoMenor100.Saldo = 50;
 
-            var contaMesNaoCorrente = new Conta("mesNaoCorrente");
-            contaMesNaoCorrente.DataAbertura = DateTime.Now.AddMonths(1);
+            //var contaMesNaoCorrente = new Conta("mesNaoCorrente");
+            //contaMesNaoCorrente.DataAbertura = DateTime.Now.AddMonths(1);
 
-            contas.Add(contaComSaldoMaior500Mil);
-            contas.Add(contaComSaldoMenor100);
-            contas.Add(contaMesNaoCorrente);
+            //contas.Add(contaComSaldoMaior500Mil);
+            //contas.Add(contaComSaldoMenor100);
+            //contas.Add(contaMesNaoCorrente);
 
-            var filtro1 = new DataAberturaMesCorrente(new SaldoMaior500Mil());
-            var filtro2 = new DataAberturaMesCorrente(new SaldoMenor100());
-            var filtro3 = new SaldoMenor100();
-            var filtro4 = new SaldoMaior500Mil();
-            var filtro5 = new DataAberturaMesCorrente();
+            //var filtro1 = new DataAberturaMesCorrente(new SaldoMaior500Mil());
+            //var filtro2 = new DataAberturaMesCorrente(new SaldoMenor100());
+            //var filtro3 = new SaldoMenor100();
+            //var filtro4 = new SaldoMaior500Mil();
+            //var filtro5 = new DataAberturaMesCorrente();
 
-            filtro1.ExibirListaFiltrada(contas);
-            filtro2.ExibirListaFiltrada(contas);
-            filtro3.ExibirListaFiltrada(contas);
-            filtro4.ExibirListaFiltrada(contas);
-            filtro5.ExibirListaFiltrada(contas);
+            //filtro1.ExibirListaFiltrada(contas);
+            //filtro2.ExibirListaFiltrada(contas);
+            //filtro3.ExibirListaFiltrada(contas);
+            //filtro4.ExibirListaFiltrada(contas);
+            //filtro5.ExibirListaFiltrada(contas);
+
+            /*
+             * State Pattern Example 1
+             */
+
+            var orcamento = new Orcamento(100);
+
+            Console.WriteLine(orcamento.Valor);
+
+            orcamento.AplicarDescontoExtra();
+
+            Console.WriteLine(orcamento.Valor);
+
+            orcamento.Aprovar();
+
+            orcamento.AplicarDescontoExtra();
+
+            Console.WriteLine(orcamento.Valor);
+
+            orcamento.Finalizar();
+
+            orcamento.AplicarDescontoExtra();
+
         }
     }
 }
