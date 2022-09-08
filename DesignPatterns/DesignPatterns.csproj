@@ -21,6 +21,8 @@
     <None Remove="State\" />
     <None Remove="State\Orcamento\" />
     <None Remove="State\Conta\" />
+    <None Remove="Builder\" />
+    <None Remove="Builder\NotaFiscal\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -38,5 +40,7 @@
     <Folder Include="State\" />
     <Folder Include="State\Orcamento\" />
     <Folder Include="State\Conta\" />
+    <Folder Include="Builder\" />
+    <Folder Include="Builder\NotaFiscal\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using DesignPatterns.Builder.NotaFiscal;
 using DesignPatterns.State;
 using DesignPatterns.State.Conta;
 
@@ -221,21 +223,39 @@ namespace DesignPatterns
              * State Pattern Example 2
              */
 
-            var conta = new Conta("Ana");
+            //var conta = new Conta("Ana");
 
-            Console.WriteLine(conta.Saldo);
+            //Console.WriteLine(conta.Saldo);
 
-            conta.Depositar(100);
+            //conta.Depositar(100);
 
-            Console.WriteLine(conta.Saldo);
+            //Console.WriteLine(conta.Saldo);
 
-            conta.Sacar(200);
+            //conta.Sacar(200);
 
-            Console.WriteLine(conta.Saldo);
+            //Console.WriteLine(conta.Saldo);
 
-            conta.Depositar(150);
+            //conta.Depositar(150);
 
-            Console.WriteLine(conta.Saldo);
+            //Console.WriteLine(conta.Saldo);
+
+            /*
+             * Builder Pattern Example 1
+             */
+
+            NotaFiscal notaFiscal = new NotaFiscalBuilder()
+                                    .ComRazaoSocial("Isabela e Roberto Advocacia ME")
+                                    .ComCNPJ("05.596.147/0001-00")
+                                    .ComDataDeAgora()
+                                    .ComItem(new ItemDaNota("Honorário", 250))
+                                    .ComObservacoes("--")
+                                    .Constroi();
+            Console.WriteLine(notaFiscal.RazaoSocial);
+            Console.WriteLine(notaFiscal.CNPJ);
+            Console.WriteLine(notaFiscal.DataEmissao);
+            Console.WriteLine(notaFiscal.Itens.ElementAt(0).Descricao);
+            Console.WriteLine(notaFiscal.ValorBruto);
+            Console.WriteLine(notaFiscal.Observacoes);
         }
     }
 }
