@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DesignPatterns.State;
+using DesignPatterns.State.Conta;
 
 namespace DesignPatterns
 {
@@ -198,24 +199,43 @@ namespace DesignPatterns
              * State Pattern Example 1
              */
 
-            var orcamento = new Orcamento(100);
+            //var orcamento = new Orcamento(100);
 
-            Console.WriteLine(orcamento.Valor);
+            //Console.WriteLine(orcamento.Valor);
 
-            orcamento.AplicarDescontoExtra();
+            //orcamento.AplicarDescontoExtra();
 
-            Console.WriteLine(orcamento.Valor);
+            //Console.WriteLine(orcamento.Valor);
 
-            orcamento.Aprovar();
+            //orcamento.Aprovar();
 
-            orcamento.AplicarDescontoExtra();
+            //orcamento.AplicarDescontoExtra();
 
-            Console.WriteLine(orcamento.Valor);
+            //Console.WriteLine(orcamento.Valor);
 
-            orcamento.Finalizar();
+            //orcamento.Finalizar();
 
-            orcamento.AplicarDescontoExtra();
+            //orcamento.AplicarDescontoExtra();
 
+            /*
+             * State Pattern Example 2
+             */
+
+            var conta = new Conta("Ana");
+
+            Console.WriteLine(conta.Saldo);
+
+            conta.Depositar(100);
+
+            Console.WriteLine(conta.Saldo);
+
+            conta.Sacar(200);
+
+            Console.WriteLine(conta.Saldo);
+
+            conta.Depositar(150);
+
+            Console.WriteLine(conta.Saldo);
         }
     }
 }
