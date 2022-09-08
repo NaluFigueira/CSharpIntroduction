@@ -4,18 +4,19 @@
 - [Chain of Responsibility](#chain-of-responsibility)
 - [Template Pattern](#template-pattern)
 - [Decorator Pattern](#decorator-pattern)
+- [State Pattern](#state-pattern)
 
 ## Strategy Pattern
 
 ![Classes diagram showing the strategy pattern](images/strategy.png "Strategy Pattern Example")
 
- <sup>Image by Refactoring Guru</sup>
+<sup>Image by Refactoring Guru</sup>
 
 The image above illustrates how this pattern works:
 
 - The navigator class has a private member called `routeStrategy`, which is an interface.
 - The interface declares a public method `buildRoute`.
-- The classes `Road`, `PublicTransport` and `Walking` implement the interface `RouteStrategy`, where `buildRoute` follows their respective routing strategy. 
+- The classes `Road`, `PublicTransport` and `Walking` implement the interface `RouteStrategy`, where `buildRoute` follows their respective routing strategy.
 
 The Strategy Pattern is useful when we have a group of similar algorithms and we need to alternate between them in different places of the application.
 
@@ -23,11 +24,11 @@ The Strategy Pattern is useful when we have a group of similar algorithms and we
 
 ![Classes diagram showing the chain of responsibility pattern](images/chainOfResponsibility.png "Chain of Responsibility Pattern Example")
 
- <sup>Image by Refactoring Guru</sup>
+<sup>Image by Refactoring Guru</sup>
 
- The image above illustrates how this pattern works:
+The image above illustrates how this pattern works:
 
-- There's a interface called `Handler` that contains two methods: `setNext` and `handle`. `setNext` sets which handler should be executed in case the requirements for the current handler aren't met. While `handle` is the action itself, that should validate if the request meets its requirements. 
+- There's a interface called `Handler` that contains two methods: `setNext` and `handle`. `setNext` sets which handler should be executed in case the requirements for the current handler aren't met. While `handle` is the action itself, that should validate if the request meets its requirements.
 - `BaseHandler` is optional, it should implement boilerplate code for the concrete handlers such as calling the next handler or treating default exceptions.
 - The `ConcreteHandlers` extend from `BaseHandler`, if it was implemented, or implement the `Handler` interface otherwise. According to Refactoring Guru:
 
@@ -35,14 +36,13 @@ The Strategy Pattern is useful when we have a group of similar algorithms and we
 
 - The `Client` class exemplifies the use of the `ConcreteHandlers`, it instantiates three types of handlers and sets the chain accordingly. After that it calls the `handle` method from the first handler in the chain.
 
-
 The Chain of Responsibility Pattern is useful when we have a sequence of possible actions that should be taken in case the request meets some criteria.
 
 ## Template Pattern
 
 ![Classes diagram showing the template pattern](images/template.png "Template Pattern Example")
 
- <sup>Image by Refactoring Guru</sup>
+<sup>Image by Refactoring Guru</sup>
 
 The image above illustrates how this pattern works:
 
@@ -55,7 +55,7 @@ The Template Pattern is useful when we have similar code structure in multiple c
 
 ![Classes diagram showing the decorator pattern](images/decorator.png "Decorator Pattern Example")
 
- <sup>Image by Refactoring Guru</sup>
+<sup>Image by Refactoring Guru</sup>
 
 The image above illustrates how this pattern works:
 
@@ -67,7 +67,7 @@ The image above illustrates how this pattern works:
 ```csharp
 var stack = new Notifier();
 
-if(facebookEnabled) 
+if(facebookEnabled)
 {
     stack = new FacebookDecorator(stack);
 }
@@ -81,3 +81,17 @@ app.setNotifier(stack);
 ```
 
 The Decorator Pattern is useful when we have behaviors that could be composed by behaviors from other classes involved in the same hierarchy.
+
+## State Pattern
+
+![Classes diagram showing the state pattern](images/state.png "State Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `State` interface that contains a `player` property, a constructor that receives the `player` as a parameter, and four methods: `clickLock`, `clickPlay`, `clickNext` and `clickPrevious`. All these methods have different implementations for each player state, also each state should take care of the transitions between states.
+- There are three possible states for the player: ready, playing and locked. Each of those has its own class that implements the `State` interface.
+- The `Player` class controls the current state and other media player attributes like UI, volume, playlist and current song. Among the class methods are `clickLock`, `clickPlay`, `clickNext` and `clickPrevious`, which should call the current state implementation of that method.
+
+The State Pattern is useful when we have a state machine. Usually, the management of transitions between states are complex, becoming harder to implement and maintain when the applications starts to scale. This pattern allows a smother management of those states and their transitions, since each state has its own class and controls the transition to the previous/next state in the flow.
