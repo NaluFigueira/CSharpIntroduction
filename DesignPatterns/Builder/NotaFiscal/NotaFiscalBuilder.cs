@@ -8,7 +8,7 @@ namespace DesignPatterns.Builder.NotaFiscal
         public string RazaoSocial { get; private set; }
         public string CNPJ { get; private set; }
         public double ValorBruto { get; private set; }
-        public DateTime DataEmissao { get; private set; }
+        public DateTime DataEmissao = DateTime.Now;
         public string Observacoes { get; private set; }
         public List<ItemDaNota> Itens = new List<ItemDaNota>();
 
@@ -25,9 +25,9 @@ namespace DesignPatterns.Builder.NotaFiscal
             return this;
         }
 
-        public NotaFiscalBuilder ComDataDeAgora()
+        public NotaFiscalBuilder ComDataQualquer(DateTime data)
         {
-            DataEmissao = DateTime.Now;
+            DataEmissao = data;
             return this;
         }
 
@@ -37,7 +37,7 @@ namespace DesignPatterns.Builder.NotaFiscal
             return this;
         }
 
-        public NotaFiscalBuilder ComItem(ItemDaNota item)
+        public NotaFiscalBuilder Com(ItemDaNota item)
         {
             Itens.Add(item);
             ValorBruto += item.Valor;
