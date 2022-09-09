@@ -5,6 +5,7 @@
 - [Template Pattern](#template-pattern)
 - [Decorator Pattern](#decorator-pattern)
 - [State Pattern](#state-pattern)
+- [Builder Pattern](#builder-pattern)
 
 ## Strategy Pattern
 
@@ -95,3 +96,16 @@ The image above illustrates how this pattern works:
 - The `Player` class controls the current state and other media player attributes like UI, volume, playlist and current song. Among the class methods are `clickLock`, `clickPlay`, `clickNext` and `clickPrevious`, which should call the current state implementation of that method.
 
 The State Pattern is useful when we have a state machine. Usually, the management of transitions between states are complex, becoming harder to implement and maintain when the applications starts to scale. This pattern allows a smother management of those states and their transitions, since each state has its own class and controls the transition to the previous/next state in the flow.
+
+## Builder Pattern
+
+![Classes diagram showing the builder pattern](images/builder.png "Builder Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `Builder` interface that determines how vehicle builder classes should implement.
+- There are two builder classes `CarBuilder` and `CarManualBuilder`, both implement the `Builder` interface. Each one has an attribute relate to which entity they want to build, `Car` and `Manual`, respectively. Each method required by the interface should store how each of those should be built (number of seats, engine, trip computer and GPS). At last, both have a `getResult` method that returns the wanted entity with the attributes defined in the previous methods.
+
+The State Pattern is useful when we have an object that is complex to create and/or with a lot of attributes.
