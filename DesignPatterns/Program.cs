@@ -2,9 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using DesignPatterns.Builder.NotaFiscal;
-using DesignPatterns.State;
-using DesignPatterns.State.Conta;
+using DesignPatterns.Observer;
 
 namespace DesignPatterns
 {
@@ -243,12 +241,32 @@ namespace DesignPatterns
              * Builder Pattern Example 1
              */
 
+            //NotaFiscal notaFiscal = new NotaFiscalBuilder()
+            //                        .ComRazaoSocial("Isabela e Roberto Advocacia ME")
+            //                        .ComCNPJ("05.596.147/0001-00")
+            //                        .ComDataDeAgora()
+            //                        .ComItem(new ItemDaNota("Honorário", 250))
+            //                        .ComObservacoes("--")
+            //                        .Constroi();
+            //Console.WriteLine(notaFiscal.RazaoSocial);
+            //Console.WriteLine(notaFiscal.CNPJ);
+            //Console.WriteLine(notaFiscal.DataEmissao);
+            //Console.WriteLine(notaFiscal.Itens.ElementAt(0).Descricao);
+            //Console.WriteLine(notaFiscal.ValorBruto);
+            //Console.WriteLine(notaFiscal.Observacoes);
+
+            /*
+             * Observer Pattern Example 1
+             */
+
             NotaFiscal notaFiscal = new NotaFiscalBuilder()
                                     .ComRazaoSocial("Isabela e Roberto Advocacia ME")
                                     .ComCNPJ("05.596.147/0001-00")
-                                    .ComDataDeAgora()
-                                    .ComItem(new ItemDaNota("Honorário", 250))
+                                    .Com(new ItemDaNota("Honorário", 250))
                                     .ComObservacoes("--")
+                                    .AdicionaAcao(new EnviadorEmail())
+                                    .AdicionaAcao(new NotaFiscalDAO())
+                                    .AdicionaAcao(new Multiplicador(10.5))
                                     .Constroi();
             Console.WriteLine(notaFiscal.RazaoSocial);
             Console.WriteLine(notaFiscal.CNPJ);
@@ -256,6 +274,7 @@ namespace DesignPatterns
             Console.WriteLine(notaFiscal.Itens.ElementAt(0).Descricao);
             Console.WriteLine(notaFiscal.ValorBruto);
             Console.WriteLine(notaFiscal.Observacoes);
+
         }
     }
 }

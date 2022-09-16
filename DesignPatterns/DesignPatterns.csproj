@@ -23,6 +23,7 @@
     <None Remove="State\Conta\" />
     <None Remove="Builder\" />
     <None Remove="Builder\NotaFiscal\" />
+    <None Remove="Observer\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -42,5 +43,6 @@
     <Folder Include="State\Conta\" />
     <Folder Include="Builder\" />
     <Folder Include="Builder\NotaFiscal\" />
+    <Folder Include="Observer\" />
   </ItemGroup>
 </Project>

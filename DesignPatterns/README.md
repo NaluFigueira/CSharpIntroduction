@@ -6,6 +6,7 @@
 - [Decorator Pattern](#decorator-pattern)
 - [State Pattern](#state-pattern)
 - [Builder Pattern](#builder-pattern)
+- [Observer Pattern](#observer-pattern)
 
 ## Strategy Pattern
 
@@ -109,3 +110,18 @@ The image above illustrates how this pattern works:
 - There are two builder classes `CarBuilder` and `CarManualBuilder`, both implement the `Builder` interface. Each one has an attribute relate to which entity they want to build, `Car` and `Manual`, respectively. Each method required by the interface should store how each of those should be built (number of seats, engine, trip computer and GPS). At last, both have a `getResult` method that returns the wanted entity with the attributes defined in the previous methods.
 
 The State Pattern is useful when we have an object that is complex to create and/or with a lot of attributes.
+
+## Observer Pattern
+
+![Classes diagram showing the observer pattern](images/observer.png "Observer Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `EventListeners` interface that contains a method to update a file name in a specific system
+- There are two listener classes `EmailAlertsListener` and `LoggingListener`, both implement the `EventListeners` interface.
+- There's an `EventManager`that has a list of listeners, which is responsible for subscribing, unsubscribing and notifying an event listener that they should execute their update method.
+- At last, but not least, there's the `Editor` class that has an `EventManager`, that calls its notify method when the editor opens/saves a file.
+
+The Observer Pattern is useful when we have a class that is growing on responsibilities, or when we have different actions to be executed after a specific process.
