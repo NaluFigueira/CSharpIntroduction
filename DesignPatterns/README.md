@@ -7,6 +7,7 @@
 - [State Pattern](#state-pattern)
 - [Builder Pattern](#builder-pattern)
 - [Observer Pattern](#observer-pattern)
+- [Factory Pattern](#factory-pattern)
 
 ## Strategy Pattern
 
@@ -125,3 +126,20 @@ The image above illustrates how this pattern works:
 - At last, but not least, there's the `Editor` class that has an `EventManager`, that calls its notify method when the editor opens/saves a file.
 
 The Observer Pattern is useful when we have a class that is growing on responsibilities, or when we have different actions to be executed after a specific process.
+
+## Factory Pattern
+
+![Classes diagram showing the factory pattern](images/factory.png "Factory Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `Button` interface that contains two methods `render` and `onClick`.
+- There are two button classes `WindowsButton` and `HTMLButton`, both implement the `Button` interface.
+- There's a `Dialog` class that has two methods `render` and `createButton`. The `render` method creates a button, sets the `onClick` callback to close the dialog and then renders the button. While the `createButton` is an abstract method.
+- `WindowsDialog` and `WebDialog` are children classes of `Dialog`, and each implement the `createButton` method, the former creates a `WindowsButton` and the latter, a `HTMLButton`.
+
+The Factory Pattern is useful when we want to separate a process (in the example, the creation of a button) in a single place.
+
+The difference between the factory and the builder patterns is that the builder pattern requires a lot of information to create an object, while the factory doesn't.

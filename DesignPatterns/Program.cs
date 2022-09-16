@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using DesignPatterns.Factory;
 using DesignPatterns.Observer;
 
 namespace DesignPatterns
@@ -259,22 +261,30 @@ namespace DesignPatterns
              * Observer Pattern Example 1
              */
 
-            NotaFiscal notaFiscal = new NotaFiscalBuilder()
-                                    .ComRazaoSocial("Isabela e Roberto Advocacia ME")
-                                    .ComCNPJ("05.596.147/0001-00")
-                                    .Com(new ItemDaNota("Honorário", 250))
-                                    .ComObservacoes("--")
-                                    .AdicionaAcao(new EnviadorEmail())
-                                    .AdicionaAcao(new NotaFiscalDAO())
-                                    .AdicionaAcao(new Multiplicador(10.5))
-                                    .Constroi();
-            Console.WriteLine(notaFiscal.RazaoSocial);
-            Console.WriteLine(notaFiscal.CNPJ);
-            Console.WriteLine(notaFiscal.DataEmissao);
-            Console.WriteLine(notaFiscal.Itens.ElementAt(0).Descricao);
-            Console.WriteLine(notaFiscal.ValorBruto);
-            Console.WriteLine(notaFiscal.Observacoes);
+            //NotaFiscal notaFiscal = new NotaFiscalBuilder()
+            //                        .ComRazaoSocial("Isabela e Roberto Advocacia ME")
+            //                        .ComCNPJ("05.596.147/0001-00")
+            //                        .Com(new ItemDaNota("Honorário", 250))
+            //                        .ComObservacoes("--")
+            //                        .AdicionaAcao(new EnviadorEmail())
+            //                        .AdicionaAcao(new NotaFiscalDAO())
+            //                        .AdicionaAcao(new Multiplicador(10.5))
+            //                        .Constroi();
+            //Console.WriteLine(notaFiscal.RazaoSocial);
+            //Console.WriteLine(notaFiscal.CNPJ);
+            //Console.WriteLine(notaFiscal.DataEmissao);
+            //Console.WriteLine(notaFiscal.Itens.ElementAt(0).Descricao);
+            //Console.WriteLine(notaFiscal.ValorBruto);
+            //Console.WriteLine(notaFiscal.Observacoes);
 
+            /*
+             * Factory Pattern Example 1
+             */
+
+            var conexao = new ConnectionFactory().GetConnection();
+
+            IDbCommand comando = conexao.CreateCommand();
+            comando.CommandText = "select * from tabela";
         }
     }
 }

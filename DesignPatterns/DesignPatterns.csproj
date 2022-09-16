@@ -24,6 +24,7 @@
     <None Remove="Builder\" />
     <None Remove="Builder\NotaFiscal\" />
     <None Remove="Observer\" />
+    <None Remove="Factory\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -44,5 +45,6 @@
     <Folder Include="Builder\" />
     <Folder Include="Builder\NotaFiscal\" />
     <Folder Include="Observer\" />
+    <Folder Include="Factory\" />
   </ItemGroup>
 </Project>
