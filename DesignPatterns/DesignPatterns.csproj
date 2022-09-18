@@ -25,6 +25,7 @@
     <None Remove="Builder\NotaFiscal\" />
     <None Remove="Observer\" />
     <None Remove="Factory\" />
+    <None Remove="Flyweight\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -46,5 +47,9 @@
     <Folder Include="Builder\NotaFiscal\" />
     <Folder Include="Observer\" />
     <Folder Include="Factory\" />
+    <Folder Include="Flyweight\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Flyweight\SystemSounds.cs" />
   </ItemGroup>
 </Project>

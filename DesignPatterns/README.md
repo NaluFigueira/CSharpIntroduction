@@ -8,6 +8,7 @@
 - [Builder Pattern](#builder-pattern)
 - [Observer Pattern](#observer-pattern)
 - [Factory Pattern](#factory-pattern)
+- [FlyWeight Pattern](#flyweight-pattern)
 
 ## Strategy Pattern
 
@@ -143,3 +144,22 @@ The image above illustrates how this pattern works:
 The Factory Pattern is useful when we want to separate a process (in the example, the creation of a button) in a single place.
 
 The difference between the factory and the builder patterns is that the builder pattern requires a lot of information to create an object, while the factory doesn't.
+
+## FlyWeight Pattern
+
+![Classes diagram showing the flyweight pattern](images/flyweight.png "FlyWeight Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `TreeType`, that contains the attributes `name`, `color` and `texture`, and a method `draw`.
+- There's a `Tree` class that contains two attributes `x`, `y` (referring to its location in a forest) and `type`, and a method `draw`.
+- There's a `TreeFactory` class that has a list of tree types, and a method to get a tree type based on its name, color and texture. If the factory finds an existing type, it returns the found type, otherwise it adds the new type to its list.
+- There's a `Forest` class that contains a list of trees, and two methods `plantTree` and `draw`. `plantTree` first asks to the `TreeFactory` search for the tree type that is associated to the `name`, `color` and `texture` requested, then creates a new instance of `Tree` with the returned type, and, at last, adds it to the trees list.
+
+The FlyWeight Pattern is useful when we want to save resources (memory or processing time, for example) by saving multiple instances of the same object in a factory. In the example above, we stored the tree types.
+
+The difference between the factory and the flyweight patterns is that the factory pattern isolates the process of creation of a complex class instance in another class. While the flyweight focuses on storing instances of that class, and not necessarily creating its instance.
+
+The flyweight pattern is also very similar to the **Singleton pattern**, with the difference that the singleton pattern only stores a single instance, that'll be used globally.

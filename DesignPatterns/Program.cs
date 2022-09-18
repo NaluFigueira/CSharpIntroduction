@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using DesignPatterns.Factory;
+using DesignPatterns.Flyweight;
 using DesignPatterns.Observer;
 
 namespace DesignPatterns
@@ -281,10 +282,49 @@ namespace DesignPatterns
              * Factory Pattern Example 1
              */
 
-            var conexao = new ConnectionFactory().GetConnection();
+            //var conexao = new ConnectionFactory().GetConnection();
 
-            IDbCommand comando = conexao.CreateCommand();
-            comando.CommandText = "select * from tabela";
+            //IDbCommand comando = conexao.CreateCommand();
+            //comando.CommandText = "select * from tabela";
+
+            /*
+             * Flyweight Pattern Example 1
+             */
+
+            var notas = new NotasMusicais();
+            var musica = new List<INota>{
+                    notas.Pega("do"),
+                    notas.Pega("re"),
+                    notas.Pega("mi"),
+                    notas.Pega("fa"),
+                    notas.Pega("fa"),
+                    notas.Pega("fa"),
+
+                    notas.Pega("do"),
+                    notas.Pega("re"),
+                    notas.Pega("do"),
+                    notas.Pega("re"),
+                    notas.Pega("re"),
+                    notas.Pega("re"),
+
+                    notas.Pega("do"),
+                    notas.Pega("sol"),
+                    notas.Pega("fa"),
+                    notas.Pega("mi"),
+                    notas.Pega("mi"),
+                    notas.Pega("mi"),
+
+                    notas.Pega("do"),
+                    notas.Pega("re"),
+                    notas.Pega("mi"),
+                    notas.Pega("fa"),
+                    notas.Pega("fa"),
+                    notas.Pega("fa")
+                };
+
+            var piano = new Piano();
+            piano.Toca(musica);
+
         }
     }
 }
