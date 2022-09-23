@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using DesignPatterns.Factory;
 using DesignPatterns.Flyweight;
+using DesignPatterns.Memento;
 using DesignPatterns.Observer;
 
 namespace DesignPatterns
@@ -291,40 +292,58 @@ namespace DesignPatterns
              * Flyweight Pattern Example 1
              */
 
-            var notas = new NotasMusicais();
-            var musica = new List<INota>{
-                    notas.Pega("do"),
-                    notas.Pega("re"),
-                    notas.Pega("mi"),
-                    notas.Pega("fa"),
-                    notas.Pega("fa"),
-                    notas.Pega("fa"),
+            //var notas = new NotasMusicais();
+            //var musica = new List<INota>{
+            //        notas.Pega("do"),
+            //        notas.Pega("re"),
+            //        notas.Pega("mi"),
+            //        notas.Pega("fa"),
+            //        notas.Pega("fa"),
+            //        notas.Pega("fa"),
 
-                    notas.Pega("do"),
-                    notas.Pega("re"),
-                    notas.Pega("do"),
-                    notas.Pega("re"),
-                    notas.Pega("re"),
-                    notas.Pega("re"),
+            //        notas.Pega("do"),
+            //        notas.Pega("re"),
+            //        notas.Pega("do"),
+            //        notas.Pega("re"),
+            //        notas.Pega("re"),
+            //        notas.Pega("re"),
 
-                    notas.Pega("do"),
-                    notas.Pega("sol"),
-                    notas.Pega("fa"),
-                    notas.Pega("mi"),
-                    notas.Pega("mi"),
-                    notas.Pega("mi"),
+            //        notas.Pega("do"),
+            //        notas.Pega("sol"),
+            //        notas.Pega("fa"),
+            //        notas.Pega("mi"),
+            //        notas.Pega("mi"),
+            //        notas.Pega("mi"),
 
-                    notas.Pega("do"),
-                    notas.Pega("re"),
-                    notas.Pega("mi"),
-                    notas.Pega("fa"),
-                    notas.Pega("fa"),
-                    notas.Pega("fa")
-                };
+            //        notas.Pega("do"),
+            //        notas.Pega("re"),
+            //        notas.Pega("mi"),
+            //        notas.Pega("fa"),
+            //        notas.Pega("fa"),
+            //        notas.Pega("fa")
+            //    };
 
-            var piano = new Piano();
-            piano.Toca(musica);
+            //var piano = new Piano();
+            //piano.Toca(musica);
 
+
+            /*
+             * Memento Pattern Example 1
+             */
+
+            var contrato = new Contrato(DateTime.Now, "Fulano");
+            var historico = new Historico();
+
+            historico.SalvarContrato(contrato);
+            contrato.Avanca(); //em andamento
+
+            historico.SalvarContrato(contrato);
+            contrato.Avanca(); //acertado
+
+            historico.SalvarContrato(contrato);
+            contrato.Avanca(); //concluído
+
+            historico.SalvarContrato(contrato);
         }
     }
 }

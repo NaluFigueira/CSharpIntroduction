@@ -9,6 +9,7 @@
 - [Observer Pattern](#observer-pattern)
 - [Factory Pattern](#factory-pattern)
 - [FlyWeight Pattern](#flyweight-pattern)
+- [Memento](#memento)
 
 ## Strategy Pattern
 
@@ -163,3 +164,20 @@ The FlyWeight Pattern is useful when we want to save resources (memory or proces
 The difference between the factory and the flyweight patterns is that the factory pattern isolates the process of creation of a complex class instance in another class. While the flyweight focuses on storing instances of that class, and not necessarily creating its instance.
 
 The flyweight pattern is also very similar to the **Singleton pattern**, with the difference that the singleton pattern only stores a single instance, that'll be used globally.
+
+## Memento Pattern
+
+![Classes diagram showing the memento pattern](images/memento.png "Memento Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `Editor` class, that contains the attributes `text`, `cursorPos`, `selection`, `currentFont`, etc; and two methods: `makeSnapshot` and `restore`.
+- The class `Snapshot`, that contains all the information of the editor at a particular moment in time. It implements the `Memento` interface that contains two methods: `getName` and `getSnapshotDate`.
+- There's a `History` class that is responsible for storing the snapshots taken.
+- There's a `Command` class that is responsible for triggering the creation of snapshots and their restoration through the `Editor` class methods. The restoration method restores the editor to the attributes stored in a snapshot that's in the history.
+
+The Memento Pattern is useful when we want to frequently restore an object to a previous state.
+
+> :warning: The Memento Pattern can take a lot of memory in execution, it's important to limit history storage to avoid problems.
