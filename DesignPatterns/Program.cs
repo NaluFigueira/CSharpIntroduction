@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using DesignPatterns.Factory;
 using DesignPatterns.Flyweight;
+using DesignPatterns.Interpreter;
 using DesignPatterns.Memento;
 using DesignPatterns.Observer;
 
@@ -331,19 +332,37 @@ namespace DesignPatterns
              * Memento Pattern Example 1
              */
 
-            var contrato = new Contrato(DateTime.Now, "Fulano");
-            var historico = new Historico();
+            //var contrato = new Contrato(DateTime.Now, "Fulano");
+            //var historico = new Historico();
 
-            historico.SalvarContrato(contrato);
-            contrato.Avanca(); //em andamento
+            //historico.SalvarContrato(contrato);
+            //contrato.Avanca(); //em andamento
 
-            historico.SalvarContrato(contrato);
-            contrato.Avanca(); //acertado
+            //historico.SalvarContrato(contrato);
+            //contrato.Avanca(); //acertado
 
-            historico.SalvarContrato(contrato);
-            contrato.Avanca(); //concluído
+            //historico.SalvarContrato(contrato);
+            //contrato.Avanca(); //concluído
 
-            historico.SalvarContrato(contrato);
+            //historico.SalvarContrato(contrato);
+
+            /*
+             * Interpreter Pattern Example 1
+             */
+
+            //((1 + 10) + 5) - (20 - 10)
+            //var esquerda = new Soma(new Soma(new Numero(1), new Numero(10)), new Numero(5));
+            //var direita = new Subtracao(new Numero(20), new Numero(10));
+            //var op = new Subtracao(esquerda, direita);
+
+            //(2*10)/5
+            //var esquerda = new Multiplicacao(new Numero(2), new Numero(10));
+            //var op = new Divisao(esquerda, new Numero(5));
+
+            //sqrt(2+2)
+            var op = new RaizQuadrada(new Soma(new Numero(2), new Numero(2)));
+
+            Console.WriteLine(op.Avalia());
         }
     }
 }

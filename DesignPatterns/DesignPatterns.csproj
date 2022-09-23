@@ -27,6 +27,7 @@
     <None Remove="Factory\" />
     <None Remove="Flyweight\" />
     <None Remove="Memento\" />
+    <None Remove="Interpreter\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -50,6 +51,7 @@
     <Folder Include="Factory\" />
     <Folder Include="Flyweight\" />
     <Folder Include="Memento\" />
+    <Folder Include="Interpreter\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Flyweight\SystemSounds.cs" />

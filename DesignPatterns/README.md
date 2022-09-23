@@ -10,6 +10,7 @@
 - [Factory Pattern](#factory-pattern)
 - [FlyWeight Pattern](#flyweight-pattern)
 - [Memento](#memento)
+- [Interpreter](#interpreter)
 
 ## Strategy Pattern
 
@@ -181,3 +182,16 @@ The image above illustrates how this pattern works:
 The Memento Pattern is useful when we want to frequently restore an object to a previous state.
 
 > :warning: The Memento Pattern can take a lot of memory in execution, it's important to limit history storage to avoid problems.
+
+## Interpreter Pattern
+
+![Classes diagram showing the interpreter pattern](images/interpreter.png "Interpreter Pattern Example")
+
+<sup>Image by Source Making</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `AbstractExpression` interface, that contains the methods `solve`, which should solve a context/expression.
+- The class `TerminalExpression` implements the interface `AbstractExpression`, and it's `solve` method returns a value that does not depend upon other contexts/expressions, while `CompoundExpression` class `solve` method does `solve` other expressions/context to determine its final result.
+
+The Interpreter Pattern is useful when we want to build a DSL or an application that needs to solve mathematical expressions.
