@@ -1,12 +1,14 @@
 ﻿using System;
+using DesignPatterns.InterpreterVisitor;
+
 namespace DesignPatterns.Interpreter
 {
-    public class Subtracao : IExpressao
+    public class Soma : IExpressao
     {
         public IExpressao Esquerda { get; set; }
         public IExpressao Direita { get; set; }
 
-        public Subtracao(IExpressao esquerda, IExpressao direita)
+        public Soma(IExpressao esquerda, IExpressao direita)
         {
             Esquerda = esquerda;
             Direita = direita;
@@ -14,7 +16,12 @@ namespace DesignPatterns.Interpreter
 
         public int Avalia()
         {
-            return Esquerda.Avalia() - Direita.Avalia();
+            return Esquerda.Avalia() + Direita.Avalia();
+        }
+
+        public void Aceita(IVisitor visitor)
+        {
+            visitor.ImprimeSoma(this);
         }
     }
 }

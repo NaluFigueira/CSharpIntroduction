@@ -51,7 +51,7 @@
     <Folder Include="Factory\" />
     <Folder Include="Flyweight\" />
     <Folder Include="Memento\" />
-    <Folder Include="Interpreter\" />
+    <Folder Include="InterpreterVisitor\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Flyweight\SystemSounds.cs" />

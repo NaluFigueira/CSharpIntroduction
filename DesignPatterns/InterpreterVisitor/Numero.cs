@@ -1,4 +1,6 @@
 ﻿using System;
+using DesignPatterns.InterpreterVisitor;
+
 namespace DesignPatterns.Interpreter
 {
     public class Numero : IExpressao
@@ -13,6 +15,11 @@ namespace DesignPatterns.Interpreter
         public int Avalia()
         {
             return Num;
+        }
+
+        public void Aceita(IVisitor visitor)
+        {
+            visitor.ImprimeNumero(this);
         }
     }
 }

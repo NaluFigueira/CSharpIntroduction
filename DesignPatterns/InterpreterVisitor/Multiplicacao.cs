@@ -1,4 +1,6 @@
 ﻿using System;
+using DesignPatterns.InterpreterVisitor;
+
 namespace DesignPatterns.Interpreter
 {
     public class Multiplicacao : IExpressao
@@ -15,6 +17,11 @@ namespace DesignPatterns.Interpreter
         public int Avalia()
         {
             return Esquerda.Avalia() * Direita.Avalia();
+        }
+
+        public void Aceita(IVisitor visitor)
+        {
+            visitor.ImprimeMultiplicacao(this);
         }
     }
 }

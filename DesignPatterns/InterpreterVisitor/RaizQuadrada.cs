@@ -1,4 +1,6 @@
 ﻿using System;
+using DesignPatterns.InterpreterVisitor;
+
 namespace DesignPatterns.Interpreter
 {
     public class RaizQuadrada : IExpressao
@@ -13,6 +15,11 @@ namespace DesignPatterns.Interpreter
         public int Avalia()
         {
             return (int)Math.Sqrt(Valor.Avalia());
+        }
+
+        public void Aceita(IVisitor visitor)
+        {
+            visitor.ImprimeRaizQuadrada(this);
         }
     }
 }

@@ -11,6 +11,7 @@
 - [FlyWeight Pattern](#flyweight-pattern)
 - [Memento](#memento)
 - [Interpreter](#interpreter)
+- [Visitor](#visitor)
 
 ## Strategy Pattern
 
@@ -191,7 +192,21 @@ The Memento Pattern is useful when we want to frequently restore an object to a 
 
 The image above illustrates how this pattern works:
 
-- There's a `AbstractExpression` interface, that contains the methods `solve`, which should solve a context/expression.
+- There's a `AbstractExpression` interface, that contains the method `solve`, which should solve a context/expression.
 - The class `TerminalExpression` implements the interface `AbstractExpression`, and it's `solve` method returns a value that does not depend upon other contexts/expressions, while `CompoundExpression` class `solve` method does `solve` other expressions/context to determine its final result.
 
 The Interpreter Pattern is useful when we want to build a DSL or an application that needs to solve mathematical expressions.
+
+## Visitor Pattern
+
+![Classes diagram showing the visitor pattern](images/visitor.png "Visitor Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `Visitor` interface, that contains the methods `visitDot`, `visitCircle`, `visitRectangle` and `visitCompoundGraphics`, which should access a dot, circle, rectangle or compound graphics elements respectively.
+- The interface `Shape` implemented by the classes `Dot`, `Circle`, `Rectangle` and `CompoundGraphics`, determines that all shapes should contain three methods `move`, `draw` and `accept`. The `accept` method receives a visitor instance, and that method should call the respective "visit" method of that element.
+- The class `XMLExportVisitor`, which implements the `Visitor` interface, defines how those shapes should be exported.
+
+The Visitor Pattern is useful when we want to visit elements of a data structure.

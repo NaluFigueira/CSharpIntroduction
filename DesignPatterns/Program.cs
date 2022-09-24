@@ -6,6 +6,7 @@ using System.Linq;
 using DesignPatterns.Factory;
 using DesignPatterns.Flyweight;
 using DesignPatterns.Interpreter;
+using DesignPatterns.InterpreterVisitor;
 using DesignPatterns.Memento;
 using DesignPatterns.Observer;
 
@@ -360,9 +361,25 @@ namespace DesignPatterns
             //var op = new Divisao(esquerda, new Numero(5));
 
             //sqrt(2+2)
-            var op = new RaizQuadrada(new Soma(new Numero(2), new Numero(2)));
+            //var op = new RaizQuadrada(new Soma(new Numero(2), new Numero(2)));
 
-            Console.WriteLine(op.Avalia());
+            //Console.WriteLine(op.Avalia());
+
+            /*
+             * Visitor Pattern Example 1
+             */
+
+            //((1 + 10) + 5) - (20 - 10)
+            var esquerda = new Soma(new Soma(new Numero(1), new Numero(10)), new Numero(5));
+            var direita = new Subtracao(new Numero(20), new Numero(10));
+            var op = new Subtracao(esquerda, direita);
+
+            var visitor = new Visitor();
+            var visitorPrefixo = new VisitorPreFixo();
+
+            visitor.ImprimeSubtracao(op);
+            Console.WriteLine();
+            visitorPrefixo.ImprimeSubtracao(op);
         }
     }
 }
