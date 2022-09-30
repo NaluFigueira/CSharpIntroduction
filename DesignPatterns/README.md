@@ -9,10 +9,12 @@
 - [Observer Pattern](#observer-pattern)
 - [Factory Pattern](#factory-pattern)
 - [FlyWeight Pattern](#flyweight-pattern)
-- [Memento](#memento)
-- [Interpreter](#interpreter)
-- [Visitor](#visitor)
-- [Bridge](#bridge)
+- [Memento Pattern](#memento-pattern)
+- [Interpreter Pattern](#interpreter-pattern)
+- [Visitor Pattern](#visitor-pattern)
+- [Bridge Pattern](#bridge-pattern)
+- [Command Pattern](#command-pattern)
+- [Adapter Pattern](#adapter-pattern)
 
 ## Strategy Pattern
 
@@ -241,3 +243,18 @@ The Command Pattern is useful when we have a series of actions that an object sh
 
 The difference between the command pattern and the strategy pattern is that each command has a different purpose, while all the strategies have the same purpose, but a different approach of executing that purpose.
 Also there are some differences in implementation that should be considered, more details [here](https://stackoverflow.com/a/4835168).
+
+## Adapter Pattern
+
+![Classes diagram showing the adapter pattern](images/adapter.png "Adapter Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `RoundPeg` class that contains an attribute `radius`.
+- There's a `RoundHole` class that contains an attribute `radius` and a method `fits`, that receives a `RoundPeg` instance as a parameter.
+- There's a `SquarePeg` class that contains an attribute `width`.
+- There's a `SquarePegAdapter` class that contains a `SquarePeg` instance. Its method `getRadius` converts the square instance width into radius, that way it can be used by `RoundHole`.
+
+The Command Pattern is useful when we need objects with incompatible interfaces to collaborate, by adapting one of the objects characteristics to be compatible with the others.

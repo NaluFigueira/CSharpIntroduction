@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using DesignPatterns.Adapter;
 using DesignPatterns.Bridge;
 
 namespace DesignPatterns
@@ -380,14 +381,27 @@ namespace DesignPatterns
              * Bridge Pattern Example 1
              */
 
-            var mensagemAdministrativa = new MensagemAdministrativa("Fulano");
-            var mensagemCliente = new MensagemCliente("Ciclano");
+            //var mensagemAdministrativa = new MensagemAdministrativa("Fulano");
+            //var mensagemCliente = new MensagemCliente("Ciclano");
 
-            var enviadorSms = new EnviadorSMS();
-            var enviadorEmail = new EnviadorEmail();
+            //var enviadorSms = new EnviadorSMS();
+            //var enviadorEmail = new EnviadorEmail();
 
-            enviadorSms.Envia(mensagemAdministrativa);
-            enviadorEmail.Envia(mensagemCliente);
+            //enviadorSms.Envia(mensagemAdministrativa);
+            //enviadorEmail.Envia(mensagemCliente);
+
+            /*
+             *  Adapter Pattern Example 1
+             */
+
+            var cliente = new Cliente();
+            cliente.Nome = "Fulano";
+            cliente.Endereco = "Rua Sete";
+            cliente.DataDeNascimento = DateTime.Now;
+
+            string xml = new GeradorXML().Gerar(cliente);
+
+            Console.Write(xml);
         }
     }
 }
