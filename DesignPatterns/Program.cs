@@ -3,12 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using DesignPatterns.Factory;
-using DesignPatterns.Flyweight;
-using DesignPatterns.Interpreter;
-using DesignPatterns.InterpreterVisitor;
-using DesignPatterns.Memento;
-using DesignPatterns.Observer;
+using DesignPatterns.Bridge;
 
 namespace DesignPatterns
 {
@@ -370,16 +365,29 @@ namespace DesignPatterns
              */
 
             //((1 + 10) + 5) - (20 - 10)
-            var esquerda = new Soma(new Soma(new Numero(1), new Numero(10)), new Numero(5));
-            var direita = new Subtracao(new Numero(20), new Numero(10));
-            var op = new Subtracao(esquerda, direita);
+            //var esquerda = new Soma(new Soma(new Numero(1), new Numero(10)), new Numero(5));
+            //var direita = new Subtracao(new Numero(20), new Numero(10));
+            //var op = new Subtracao(esquerda, direita);
 
-            var visitor = new Visitor();
-            var visitorPrefixo = new VisitorPreFixo();
+            //var visitor = new Visitor();
+            //var visitorPrefixo = new VisitorPreFixo();
 
-            visitor.ImprimeSubtracao(op);
-            Console.WriteLine();
-            visitorPrefixo.ImprimeSubtracao(op);
+            //visitor.ImprimeSubtracao(op);
+            //Console.WriteLine();
+            //visitorPrefixo.ImprimeSubtracao(op);
+
+            /*
+             * Bridge Pattern Example 1
+             */
+
+            var mensagemAdministrativa = new MensagemAdministrativa("Fulano");
+            var mensagemCliente = new MensagemCliente("Ciclano");
+
+            var enviadorSms = new EnviadorSMS();
+            var enviadorEmail = new EnviadorEmail();
+
+            enviadorSms.Envia(mensagemAdministrativa);
+            enviadorEmail.Envia(mensagemCliente);
         }
     }
 }

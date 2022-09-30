@@ -12,6 +12,7 @@
 - [Memento](#memento)
 - [Interpreter](#interpreter)
 - [Visitor](#visitor)
+- [Bridge](#bridge)
 
 ## Strategy Pattern
 
@@ -210,3 +211,16 @@ The image above illustrates how this pattern works:
 - The class `XMLExportVisitor`, which implements the `Visitor` interface, defines how those shapes should be exported.
 
 The Visitor Pattern is useful when we want to visit elements of a data structure.
+
+## Bridge Pattern
+
+![Classes diagram showing the bridge pattern](images/bridge.png "Bridge Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `Device` interface, that contains the methods `isEnabled`, `enable`, `disable`, `getVolume`, `setVolume`, `getChannel` and `setChannel`. This interface is implemented by the classes `Radio` and `TV`.
+- The class `Remote` contains a device attribute, that should implement the `Device` interface, the class methods manipulate the device methods. The `AdvancedRemote` inherits this class.
+
+The Bridge Pattern is useful when we have a class hierarchy that is responsible for most of the system features, we can use the Bridge Pattern to separate responsibilities throughout multiple hierarchies, and connecting them using class composition. In the example above, we have two hierarchies of classes (devices and remotes) that is connected through the device instance in the `Remote` class.
