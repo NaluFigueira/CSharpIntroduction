@@ -224,3 +224,20 @@ The image above illustrates how this pattern works:
 - The class `Remote` contains a device attribute, that should implement the `Device` interface, the class methods manipulate the device methods. The `AdvancedRemote` inherits this class.
 
 The Bridge Pattern is useful when we have a class hierarchy that is responsible for most of the system features, we can use the Bridge Pattern to separate responsibilities throughout multiple hierarchies, and connecting them using class composition. In the example above, we have two hierarchies of classes (devices and remotes) that is connected through the device instance in the `Remote` class.
+
+## Command Pattern
+
+![Classes diagram showing the command pattern](images/command.png "Command Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `Editor` class that contains a text as attribute, its methods are `getSelection`, `deleteSelection` and `replaceSelection`.
+- There's a `Command` class that contains instances of `Application`, `Editor` and `Backup`. Its constructor receives the instances of app and editor. As methods, it has `saveBackup`, `undo` and `execute`.
+- There's an `Application` class that contains an array of editors, an active editor, a clipboard and a command to manipulate editor history. Its methods are `createUI`, `executeCommand` and `undo`. The `executeCommand` method call the `execute` method of primarily editor commands `CopyCommand`, `CutCommand`, `PasteCommand` and `UndoCommand`, which implement the `Command` interface.
+
+The Command Pattern is useful when we have a series of actions that an object should execute, and we want to separate the responsibility of controlling the execution of those action in a separate entity.
+
+The difference between the command pattern and the strategy pattern is that each command has a different purpose, while all the strategies have the same purpose, but a different approach of executing that purpose.
+Also there are some differences in implementation that should be considered, more details [here](https://stackoverflow.com/a/4835168).

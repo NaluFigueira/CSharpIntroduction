@@ -29,6 +29,7 @@
     <None Remove="Memento\" />
     <None Remove="Interpreter\" />
     <None Remove="Bridge\" />
+    <None Remove="Command\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -54,6 +55,7 @@
     <Folder Include="Memento\" />
     <Folder Include="InterpreterVisitor\" />
     <Folder Include="Bridge\" />
+    <Folder Include="Command\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Flyweight\SystemSounds.cs" />
