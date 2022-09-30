@@ -31,6 +31,7 @@
     <None Remove="Bridge\" />
     <None Remove="Command\" />
     <None Remove="Adapter\" />
+    <None Remove="Singleton\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StrategyPattern\" />
@@ -58,6 +59,7 @@
     <Folder Include="Bridge\" />
     <Folder Include="Command\" />
     <Folder Include="Adapter\" />
+    <Folder Include="Singleton\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Flyweight\SystemSounds.cs" />

@@ -15,6 +15,8 @@
 - [Bridge Pattern](#bridge-pattern)
 - [Command Pattern](#command-pattern)
 - [Adapter Pattern](#adapter-pattern)
+- [Facade Pattern](#facade-pattern)
+- [Singleton Pattern](#singleton-pattern)
 
 ## Strategy Pattern
 
@@ -258,3 +260,27 @@ The image above illustrates how this pattern works:
 - There's a `SquarePegAdapter` class that contains a `SquarePeg` instance. Its method `getRadius` converts the square instance width into radius, that way it can be used by `RoundHole`.
 
 The Command Pattern is useful when we need objects with incompatible interfaces to collaborate, by adapting one of the objects characteristics to be compatible with the others.
+
+## Facade Pattern
+
+![Classes diagram showing the facade pattern](images/facade.png "Facade Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `VideoConverter` class that has methods that manipulate other systems/libraries external to the current system, such as `VideoFile`, `AudioMixer`, `CodecFactory`, etc.
+
+The Facade Pattern is useful when we need to provide a simplified interface to a system/library/framework, thus easing the process of maintenance.
+
+## Singleton Pattern
+
+![Classes diagram showing the singleton pattern](images/singleton.png "Singleton Pattern Example")
+
+<sup>Image by Refactoring Guru</sup>
+
+The image above illustrates how this pattern works:
+
+- There's a `Singleton` class that stores an instance of an specific object, and also has a method to return that instance.
+
+The Singleton Pattern is useful when we need to ensure that a class has only one instance in the whole system, while providing a global access point to it.
